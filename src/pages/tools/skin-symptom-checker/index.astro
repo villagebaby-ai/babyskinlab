@@ -1,0 +1,359 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+const toolSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: '아기 피부 증상 진단기',
+  url: 'https://babyskinlab.com/tools/skin-symptom-checker/',
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'Web',
+  description:
+    '부위·모양·시기·아기 반응 4가지를 선택하면 태열·땀띠·아토피·침독·기저귀발진 가능성을 판정하고 케어 방향을 제시하는 무료 도구',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+  publisher: { '@type': 'Organization', name: '주식회사 빌리지베이비' },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '이 진단기의 결과는 의학적 진단인가요?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '아니요. 이 도구는 부위·모양·시기·아기 반응 조합으로 가능성을 가늠해보는 참고용 도구예요. 확정 진단은 소아청소년과 또는 소아피부과 진료로만 가능해요. 결과 화면의 진료 신호에 해당하면 도구 결과와 관계없이 진료를 받아주세요.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '판정 로직은 어떤 근거로 만들어졌나요?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '대한피부과학회·대한소아청소년과학회·미국소아과학회(AAP)의 영아 피부 질환 감별 기준에서 공통적으로 쓰이는 부위·모양·시기·가려움 네 가지 단서를 점수화한 규칙 기반 로직이에요. 각 판정 결과 페이지에서 근거 가이드를 함께 제공해요.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '몇 개월 아기까지 사용할 수 있나요?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '생후 0개월부터 24개월 이상까지 월령을 선택해 사용할 수 있어요. 다만 생후 4주 미만 신생아는 피부 변화가 빠르고 감염 위험 판단이 어려워서, 이상 신호가 보이면 도구보다 진료를 우선해주세요.',
+      },
+    },
+  ],
+};
+---
+<Base
+  title="아기 피부 증상 진단기"
+  description="아기 뺨·목·입가·기저귀 부위가 빨갛다면? 부위·모양·시기·아기 반응 4가지를 선택하면 태열·땀띠·아토피·침독·기저귀발진 가능성을 60초 안에 판정하고 지금 할 일을 알려드려요."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(toolSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="wrap">
+    <div class="hero" style="padding-bottom: 8px;">
+      <h1>아기 피부 <em>증상 진단기</em></h1>
+      <p>4가지만 선택하시면 가능성 높은 상태와 지금 할 일을 알려드려요.</p>
+    </div>
+
+    <div class="checker" id="checker">
+      <div class="progress" id="progress">
+        <span class="done"></span><span></span><span></span><span></span>
+      </div>
+      <div id="step-area"></div>
+      <div class="step-nav">
+        <button class="btn btn-ghost" id="btn-back" style="visibility:hidden">← 이전</button>
+        <button class="btn btn-primary" id="btn-next" disabled>다음 →</button>
+      </div>
+    </div>
+
+    <div id="result-area"></div>
+  </section>
+
+  <script>
+    // ===== 진단 로직 데이터 =====
+    const STEPS = [
+      {
+        key: 'area', label: 'STEP 1 · 부위', q: '발진이 주로 어디에 있나요?',
+        opts: [
+          { v: 'cheek', t: '뺨·이마' },
+          { v: 'neck', t: '목 주름·겨드랑이' },
+          { v: 'mouth', t: '입 주위·턱' },
+          { v: 'diaper', t: '기저귀 부위' },
+          { v: 'fold', t: '팔꿈치·무릎 안쪽' },
+          { v: 'body', t: '몸통·전신' },
+        ],
+      },
+      {
+        key: 'shape', label: 'STEP 2 · 모양', q: '만져보면 어떤 느낌인가요?',
+        opts: [
+          { v: 'smooth', t: '매끈한 빨강' },
+          { v: 'bumpy', t: '좁쌀처럼 까끌' },
+          { v: 'ooze', t: '진물·딱지' },
+          { v: 'rough', t: '거칠고 갈라짐' },
+          { v: 'blister', t: '물집이 보여요' },
+        ],
+      },
+      {
+        key: 'when', label: 'STEP 3 · 시기', q: '월령과 지속 기간을 알려주세요.',
+        sub: true,
+        groups: [
+          { key: 'age', title: '아기 월령', opts: [
+            { v: 'a0', t: '0-1개월' }, { v: 'a1', t: '1-3개월' }, { v: 'a3', t: '3-6개월' }, { v: 'a6', t: '6-12개월' }, { v: 'a12', t: '12개월 이상' },
+          ]},
+          { key: 'dur', title: '시작된 지', opts: [
+            { v: 'd0', t: '1주 미만' }, { v: 'd1', t: '1-4주' }, { v: 'd4', t: '4주 이상' },
+          ]},
+        ],
+      },
+      {
+        key: 'react', label: 'STEP 4 · 아기 반응', q: '아기가 가려워하나요?',
+        opts: [
+          { v: 'itch', t: '자꾸 비비거나 긁어요' },
+          { v: 'calm', t: '평소와 같아요' },
+          { v: 'sleep', t: '잠까지 설쳐요' },
+        ],
+      },
+    ];
+
+    // 조건별 점수 매트릭스 (부위·모양·계절·가려움 4단서 감별 체계)
+    const MATRIX = {
+      taeyeol:   { name: '태열', area: { cheek: 3, body: 1 }, shape: { smooth: 3, bumpy: 1 }, age: { a0: 2, a1: 3, a3: 1 }, dur: { d0: 1, d1: 2, d4: 1 }, react: { calm: 2, itch: -1, sleep: -1 } },
+      heatrash:  { name: '땀띠', area: { neck: 3, diaper: 1, body: 1 }, shape: { bumpy: 3 }, age: { a0: 1, a1: 1, a3: 1, a6: 1, a12: 1 }, dur: { d0: 3, d1: 1 }, react: { itch: 1, calm: 1 } },
+      atopy:     { name: '아토피 의심', area: { fold: 3, cheek: 1, body: 1 }, shape: { rough: 2, ooze: 2 }, age: { a1: 1, a3: 2, a6: 2, a12: 1 }, dur: { d4: 3, d1: 1 }, react: { itch: 2, sleep: 3, calm: -1 } },
+      drool:     { name: '침독', area: { mouth: 4 }, shape: { smooth: 1, rough: 2, bumpy: 1 }, age: { a3: 2, a6: 2, a12: 1 }, dur: { d0: 1, d1: 1, d4: 1 }, react: { calm: 1, itch: 1 } },
+      diaper:    { name: '기저귀발진', area: { diaper: 4 }, shape: { smooth: 2, bumpy: 1, ooze: 1 }, age: { a0: 1, a1: 1, a3: 1, a6: 1, a12: 1 }, dur: { d0: 2, d1: 1 }, react: { itch: 1, calm: 1 } },
+      dry:       { name: '건조·장벽 약화', area: { body: 2, cheek: 1, fold: 1 }, shape: { rough: 3 }, age: { a0: 1, a1: 1, a3: 1, a6: 1, a12: 1 }, dur: { d1: 1, d4: 2 }, react: { calm: 1, itch: 1 } },
+    };
+
+    const RESULTS = {
+      taeyeol: {
+        emoji: '🍎',
+        summary: '엄마 호르몬 영향으로 피지선이 활발해지며 생기는 시기성 변화예요. 생후 1-3개월에 정점을 찍고 대부분 자연스럽게 옅어져요.',
+        actions: [
+          '실내 온도 22-24도, 습도 50-60%를 지켜주세요 — 체온이 오르면 피지 분비가 늘어 더 진해져요.',
+          '옷은 어른 기준 한 겹 적게, 면 소재로 입혀주세요.',
+          '미온수로 하루 1회 가볍게 세정하고, 보습은 얇게 발라주세요. 두껍게 바르면 모공이 막힐 수 있어요.',
+        ],
+        criteria: ['가벼운 로션 타입 (신생아기 과보습 주의)', '세라마이드 함유 · 약산성 pH', '무향·무색소'],
+        example: '기준 예시: 러베 5중 세라마이드 로션 (세라마이드 5종 복합, EWG 그린 등급 성분)',
+        guides: [{ href: '/guides/if-taeyeol/', t: '판정이 태열이라면 — 시기별 흐름과 케어' }],
+      },
+      heatrash: {
+        emoji: '💧',
+        summary: '땀이 땀샘 출구에서 막혀 생기는 환경성 발진이에요. 시원한 환경으로 바꾸면 보통 24-48시간 안에 눈에 띄게 좋아져요.',
+        actions: [
+          '실내 온도를 22-24도로 낮추고 통풍이 잘 되는 얇은 면 옷으로 갈아입혀 주세요.',
+          '땀이 찬 부위는 미온수로 가볍게 닦고 잘 말려주세요.',
+          '파우더는 모공을 막을 수 있어 권장하지 않아요 — 통풍이 가장 빠른 회복법이에요.',
+        ],
+        criteria: ['보습보다 통풍 우선 — 두꺼운 크림은 잠시 쉬기', '세정은 약산성 · 무향 제품으로 가볍게'],
+        example: '기준 예시: 러베 히알루론 탑투토 워시 (약산성, 저자극 세정)',
+        guides: [{ href: '/guides/if-heat-rash/', t: '판정이 땀띠라면 — 24시간 환경 테스트' }],
+      },
+      atopy: {
+        emoji: '🩺',
+        summary: '4주 이상 지속되고 가려움이 동반되는 패턴은 영아 아토피 가능성이 있어요. 조기 진료가 만성화를 막는 가장 확실한 방법이에요.',
+        actions: [
+          '소아청소년과 또는 소아피부과 진료를 예약해주세요 — 보습만으로는 부분 호전에 그치는 경우가 많아요.',
+          '진료 전까지는 미온수 5-10분 목욕 후 3분 안에 보습을 발라주세요 (soak & seal).',
+          '면 100% 옷, 실내 습도 50-60%, 손톱 짧게 — 긁어서 생기는 2차 손상을 줄여주세요.',
+        ],
+        criteria: ['세라마이드 고함량 (NP 1,000ppm 이상)', '약산성 pH 5.5 · 무향·무색소', '진물·딱지 부위는 보습제보다 진료 우선'],
+        example: '기준 예시: 러베 세라마이드 고보습 크림 (세라마이드 NP 고함량, 독일 더마테스트 EXCELLENT)',
+        guides: [{ href: '/guides/if-atopy-suspected/', t: '아토피가 의심된다면 — 진료 전 준비와 케어' }],
+      },
+      drool: {
+        emoji: '🍼',
+        summary: '침 속 소화 효소가 약한 입가 피부를 자극해 생기는 접촉성 자극이에요. 차단막 보습을 얼마나 자주 지켜주는지가 회복 속도를 정해요.',
+        actions: [
+          '침이 보이면 비비지 말고 부드럽게 눌러 닦아주세요.',
+          '닦은 뒤에는 차단막 역할을 하는 보습제를 얇게 자주 발라주세요 (하루 4-6회).',
+          '수유·이유식 후, 낮잠 전에 한 번 더 — 침이 오래 닿는 시간을 줄이는 게 핵심이에요.',
+        ],
+        criteria: ['차단막 성분 (세라마이드·시어버터 등) 포함', '무향 · 입가에 발라도 부담 없는 저자극 처방'],
+        example: '기준 예시: 러베 세라마이드 고보습 크림 (시어·카카오씨버터 차단막 처방)',
+        guides: [{ href: '/guides/if-drool-rash/', t: '판정이 침독이라면 — 차단막 보습 루틴' }],
+      },
+      diaper: {
+        emoji: '🧷',
+        summary: '기저귀 안의 습기·마찰·소변과 대변 자극이 겹쳐 생기는 발진이에요. 자주 갈아주고 잘 말리는 것만으로 대부분 2-3일 안에 좋아져요.',
+        actions: [
+          '기저귀를 평소보다 자주 확인하고, 갈 때마다 미온수로 가볍게 씻거나 닦은 뒤 완전히 말려주세요.',
+          '하루 2-3번은 기저귀 없이 엉덩이를 공기에 말리는 시간을 만들어주세요.',
+          '갈 때마다 발진 보호 크림(징크옥사이드 등)을 발라 자극을 차단해주세요.',
+        ],
+        criteria: ['pH 밸런스를 지키는 약산성 세정', '물티슈보다 미온수 세정 우선', '진물·농이 보이면 칸디다 감염 가능성 — 진료 필요'],
+        example: '기준 예시: 러베 엉덩이 클렌저 (기저귀 부위 전용 약산성 세정)',
+        guides: [{ href: '/guides/if-diaper-rash/', t: '판정이 기저귀발진이라면 — 3일 회복 루틴' }],
+      },
+      dry: {
+        emoji: '🌵',
+        summary: '피부 장벽이 수분을 붙잡지 못해 거칠고 갈라지는 상태예요. 보습 빈도를 늘리고 환경 습도를 지키면 1-2주 안에 회복되는 경우가 많아요.',
+        actions: [
+          '보습제를 하루 2-3회, 목욕 직후 3분 안에는 꼭 발라주세요.',
+          '실내 습도를 50-60%로 올려주세요 — 특히 겨울 난방 중엔 가습기가 필요해요.',
+          '목욕은 미온수로 10분 이내, 세정제는 약산성 무향으로 가볍게 써주세요.',
+        ],
+        criteria: ['세라마이드 등 지질 보충 성분', '약산성 pH · 무향', '로션으로 부족하면 크림 강도로 올리기'],
+        example: '기준 예시: 러베 5중 세라마이드 로션 → 부족하면 세라마이드 고보습 크림',
+        guides: [{ href: '/guides/if-taeyeol/', t: '피부 장벽과 보습 — 근거 가이드' }],
+      },
+    };
+
+    const RED_FLAGS = [
+      '발진 부위에 노란 농·진물이 보이면서 냄새가 나요',
+      '38도 이상 발열이 함께 있어요',
+      '물집이 번지거나 터진 자리가 넓어져요',
+      '아기가 처지고 수유량이 눈에 띄게 줄었어요',
+      '4주 이상 케어해도 점점 진해져요',
+    ];
+
+    // ===== UI 상태 =====
+    let step = 0;
+    const answers = { area: null, shape: null, age: null, dur: null, react: null };
+    const stepArea = document.getElementById('step-area');
+    const resultArea = document.getElementById('result-area');
+    const btnNext = document.getElementById('btn-next');
+    const btnBack = document.getElementById('btn-back');
+    const progress = document.getElementById('progress');
+
+    function stepComplete() {
+      const s = STEPS[step];
+      if (s.sub) return answers.age && answers.dur;
+      return !!answers[s.key];
+    }
+
+    function renderStep() {
+      const s = STEPS[step];
+      let html = `<div class="step-label">${s.label}</div><div class="step-q">${s.q}</div>`;
+      if (s.sub) {
+        for (const g of s.groups) {
+          html += `<p style="font-size:.85rem;font-weight:700;color:var(--c-ink-soft);margin:14px 0 8px">${g.title}</p><div class="opt-grid">`;
+          for (const o of g.opts) {
+            const sel = answers[g.key] === o.v ? ' sel' : '';
+            html += `<button class="opt${sel}" data-group="${g.key}" data-v="${o.v}">${o.t}</button>`;
+          }
+          html += '</div>';
+        }
+      } else {
+        html += '<div class="opt-grid">';
+        for (const o of s.opts) {
+          const sel = answers[s.key] === o.v ? ' sel' : '';
+          html += `<button class="opt${sel}" data-group="${s.key}" data-v="${o.v}">${o.t}</button>`;
+        }
+        html += '</div>';
+      }
+      stepArea.innerHTML = html;
+      stepArea.querySelectorAll('.opt').forEach((b) => {
+        b.addEventListener('click', () => {
+          const g = b.dataset.group;
+          answers[g] = b.dataset.v;
+          stepArea.querySelectorAll(`.opt[data-group="${g}"]`).forEach((x) => x.classList.remove('sel'));
+          b.classList.add('sel');
+          btnNext.disabled = !stepComplete();
+        });
+      });
+      progress.querySelectorAll('span').forEach((sp, i) => sp.classList.toggle('done', i <= step));
+      btnBack.style.visibility = step === 0 ? 'hidden' : 'visible';
+      btnNext.textContent = step === STEPS.length - 1 ? '결과 보기 ✓' : '다음 →';
+      btnNext.disabled = !stepComplete();
+      resultArea.innerHTML = '';
+    }
+
+    function score() {
+      const out = [];
+      for (const [key, m] of Object.entries(MATRIX)) {
+        let s = 0;
+        s += m.area[answers.area] || 0;
+        s += m.shape[answers.shape] || 0;
+        s += m.age[answers.age] || 0;
+        s += m.dur[answers.dur] || 0;
+        s += m.react[answers.react] || 0;
+        out.push({ key, name: m.name, score: Math.max(0, s) });
+      }
+      out.sort((a, b) => b.score - a.score);
+      return out;
+    }
+
+    function renderResult() {
+      const ranked = score();
+      const top = ranked[0];
+      const max = 13; // 이론상 최대 점수 근사
+      const pct = Math.min(95, Math.round((top.score / max) * 100));
+      const conf = pct >= 60 ? 'high' : 'mid';
+      const confText = pct >= 60 ? '가능성 높음' : '가능성 있음';
+      const r = RESULTS[top.key];
+      const second = ranked[1];
+      const showSecond = second.score >= top.score * 0.7 && second.score > 0;
+
+      // 아토피 의심 + 진료 강조 조건: 4주+ 그리고 수면 방해
+      const urgentAtopy = answers.dur === 'd4' && answers.react === 'sleep';
+      const blisterFlag = answers.shape === 'blister';
+
+      let html = `<div class="result-card">
+        <span class="verdict-badge ${conf}">${confText}</span>
+        <h2>${r.emoji} ${top.name}</h2>
+        <div class="gauge"><div style="width:${pct}%"></div></div>
+        <div class="gauge-label">판정 점수 ${pct}점 / 100점 ${showSecond ? `· 함께 볼 것: ${second.name}` : ''}</div>
+        <p style="margin:14px 0 4px; font-size:.95rem;">${r.summary}</p>
+        <h4 style="margin-top:20px; font-size:.95rem;">지금 할 일 3가지</h4>
+        <ol class="action-list">${r.actions.map((a, i) => `<li><span class="n">${i + 1}</span><span>${a}</span></li>`).join('')}</ol>`;
+
+      if (blisterFlag || urgentAtopy) {
+        html += `<div class="redflag"><h4>⚠️ 지금은 도구보다 진료가 먼저예요</h4><p style="font-size:.88rem;color:#7f1d1d;">${blisterFlag ? '물집이 보이는 발진은 감염성 질환 가능성이 있어 감별 진료가 필요해요.' : '4주 이상 지속 + 수면 방해 조합은 진료가 필요한 신호예요.'} 가까운 소아청소년과에서 확인받아 주세요.</p></div>`;
+      }
+
+      html += `<div class="redflag"><h4>🚨 이 중 하나라도 해당하면 판정과 관계없이 진료를 받아주세요</h4><ul>${RED_FLAGS.map((f) => `<li>${f}</li>`).join('')}</ul></div>`;
+
+      html += `<div class="criteria"><h4>이런 기준으로 케어 제품을 찾아보세요</h4><ul>${r.criteria.map((c) => `<li>${c}</li>`).join('')}</ul><p class="example">${r.example}</p></div>`;
+
+      html += `<div class="guide-links">근거가 궁금하다면: ${r.guides.map((g) => `<a href="${g.href}">${g.t}</a>`).join(' · ')}</div>`;
+
+      html += `<div class="disclaimer-inline">이 결과는 부위·모양·시기·아기 반응 조합에 기반한 참고용 판정이며 의학적 진단이 아니에요. 증상이 지속되거나 위 진료 신호에 해당하면 소아청소년과 진료를 받아주세요.</div>`;
+
+      html += `<div style="margin-top:16px;"><button class="btn btn-ghost" id="btn-restart">↺ 다시 진단하기</button></div></div>`;
+
+      resultArea.innerHTML = html;
+      document.getElementById('btn-restart').addEventListener('click', () => {
+        for (const k of Object.keys(answers)) answers[k] = null;
+        step = 0;
+        renderStep();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // URL에 결과 상태 기록 (공유용)
+      const params = new URLSearchParams(answers);
+      history.replaceState(null, '', `?${params.toString()}`);
+      resultArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    btnNext.addEventListener('click', () => {
+      if (!stepComplete()) return;
+      if (step === STEPS.length - 1) {
+        renderResult();
+      } else {
+        step += 1;
+        renderStep();
+      }
+    });
+    btnBack.addEventListener('click', () => {
+      if (step > 0) { step -= 1; renderStep(); }
+    });
+
+    // URL 파라미터로 결과 복원 (공유 링크)
+    const sp = new URLSearchParams(location.search);
+    if (sp.get('area') && sp.get('shape') && sp.get('age') && sp.get('dur') && sp.get('react')) {
+      for (const k of Object.keys(answers)) answers[k] = sp.get(k);
+      step = STEPS.length - 1;
+      renderStep();
+      renderResult();
+    } else {
+      renderStep();
+    }
+  </script>
+</Base>

@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogType?: 'website' | 'article';
+}
+
+const { title, description, ogType = 'website' } = Astro.props;
+const siteName = 'Baby Skin Lab';
+const fullTitle = title === siteName ? title : `${title} — ${siteName}`;
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={url} />
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:locale" content="ko_KR" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" />
+<slot name="head" />
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/">Baby Skin Lab<span class="dot">.</span></a>
+    <nav class="nav">
+      <a href="/tools/skin-symptom-checker/">증상 진단기</a>
+      <a href="/guides/">가이드</a>
+      <a href="/about/">소개</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <slot />
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>Baby Skin Lab</strong> — 아기 피부 상태를 판정하고 케어 방향을 제시하는 도구 랩</p>
+    <p>운영: 주식회사 빌리지베이비 (러베 ruuve 운영사) · 본 사이트의 판정 결과는 참고용이며 의학적 진단이 아닙니다. 증상이 지속되면 소아청소년과 진료를 받아주세요.</p>
+    <p><a href="/about/">사이트 소개</a> · <a href="/disclaimer/">의료 면책</a></p>
+  </div>
+</footer>
+</body>
+</html>

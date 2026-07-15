@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const guides = (await getCollection('guides')).sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+);
+---
+<Base
+  title="가이드"
+  description="Baby Skin Lab 진단 도구의 판정 결과를 뒷받침하는 근거 가이드 모음이에요. 판정별로 왜 그런 결과가 나왔는지, 지금 무엇을 해야 하는지 정리했어요."
+>
+  <section class="wrap">
+    <div class="hero" style="padding-bottom: 8px;">
+      <h1>근거 <em>가이드</em></h1>
+      <p>진단 도구의 판정 결과를 뒷받침하는 글이에요.</p>
+    </div>
+    <ul class="guide-list">
+      {guides.map((g) => (
+        <li>
+          <a href={`/guides/${g.id}/`}>
+            {g.data.title}
+            <span class="g-desc">{g.data.description}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

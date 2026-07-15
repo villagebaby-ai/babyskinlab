@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map((g) => ({ params: { slug: g.id }, props: { guide: g } }));
+}
+
+const { guide } = Astro.props;
+const { Content } = await render(guide);
+const d = guide.data;
+const dateStr = d.publishedAt.toISOString().slice(0, 10);
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.title,
+  description: d.description,
+  datePublished: d.publishedAt.toISOString(),
+  dateModified: (d.updatedAt ?? d.publishedAt).toISOString(),
+  author: { '@type': 'Organization', name: 'Baby Skin Lab' },
+  publisher: { '@type': 'Organization', name: '주식회사 빌리지베이비' },
+  inLanguage: 'ko',
+};
+---
+<Base title={d.title} description={d.description} ogType="article">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+  <article class="article wrap">
+    <h1>{d.title}</h1>
+    <p class="meta">발행 {dateStr} · Baby Skin Lab</p>
+    <Content />
+    {d.relatedTool && (
+      <a class="tool-cta" href={d.relatedTool}>🔍 아직 판정 전이라면 — 아기 피부 증상 진단기 사용해보기 →</a>
+    )}
+  </article>
+</Base>

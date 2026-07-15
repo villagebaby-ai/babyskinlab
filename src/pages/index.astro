@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Baby Skin Lab',
+  url: 'https://babyskinlab.com/',
+  description: '아기 피부 증상을 판정하고 케어 방향을 제시하는 인터랙티브 도구 랩',
+  publisher: {
+    '@type': 'Organization',
+    name: '주식회사 빌리지베이비',
+  },
+};
+---
+<Base
+  title="Baby Skin Lab"
+  description="아기 피부, 지금 어떤 상태일까요? 부위·모양·시기를 선택하면 60초 안에 가능성 높은 상태와 케어 방향을 알려드리는 아기 피부 판정 도구 랩입니다."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  </Fragment>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>우리 아기 피부,<br /><em>지금 어떤 상태</em>일까요?</h1>
+      <p>몇 번의 선택으로 가능성 높은 상태와 지금 할 일을 알려드려요.</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/skin-symptom-checker/">
+        <span class="t-icon">🔍</span>
+        <h3>아기 피부 증상 진단기</h3>
+        <p>부위·모양·시기·아기 반응 4가지를 선택하면 태열·땀띠·아토피·침독 가능성을 판정해드려요.</p>
+        <span class="t-badge">지금 사용 가능</span>
+      </a>
+      <div class="tool-card soon">
+        <span class="t-icon">🧴</span>
+        <h3>보습제 강도 추천기</h3>
+        <p>월령·피부 상태·계절에 맞는 보습 강도와 성분 기준을 알려드려요.</p>
+        <span class="t-badge">준비 중</span>
+      </div>
+      <div class="tool-card soon">
+        <span class="t-icon">🧪</span>
+        <h3>전성분 안전 체커</h3>
+        <p>전성분을 붙여넣으면 아기 기준 주의 성분을 하이라이트해드려요.</p>
+        <span class="t-badge">준비 중</span>
+      </div>
+      <div class="tool-card soon">
+        <span class="t-icon">🛁</span>
+        <h3>목욕·환경 루틴 생성기</h3>
+        <p>월령·계절에 맞는 목욕 온도·시간과 실내 환경 기준을 카드로 만들어드려요.</p>
+        <span class="t-badge">준비 중</span>
+      </div>
+      <div class="tool-card soon">
+        <span class="t-icon">☀️</span>
+        <h3>자외선차단제 선택기</h3>
+        <p>월령과 외출 계획에 맞는 차단제 유형과 도포 가이드를 알려드려요.</p>
+        <span class="t-badge">준비 중</span>
+      </div>
+    </div>
+  </section>
+</Base>
