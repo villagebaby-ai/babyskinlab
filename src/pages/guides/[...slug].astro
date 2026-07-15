@@ -23,6 +23,18 @@ const articleSchema = {
   publisher: { '@type': 'Organization', name: '주식회사 빌리지베이비' },
   inLanguage: 'ko',
   ...(d.keywords?.length ? { keywords: d.keywords.join(', ') } : {}),
+  ...(d.images?.length
+    ? {
+        image: d.images.map((im) => ({
+          '@type': 'ImageObject',
+          url: `https://babyskinlab.com${im.src}`,
+          width: 1200,
+          height: 800,
+          name: im.alt,
+          caption: im.caption,
+        })),
+      }
+    : {}),
 };
 
 const faqSchema = d.faq?.length

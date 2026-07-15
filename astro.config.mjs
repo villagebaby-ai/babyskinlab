@@ -23,16 +23,37 @@ function buildLastmodMap() {
 }
 const lastmodMap = buildLastmodMap();
 
+// 가이드 slug → 다이어그램 이미지 목록 (sitemap image:image — 이미지 검색 색인 신호)
+function buildDiagramMap() {
+  const map = new Map();
+  const dir = path.join(process.cwd(), 'public', 'diagrams');
+  if (!fs.existsSync(dir)) return map;
+  for (const file of fs.readdirSync(dir)) {
+    if (!/\.(svg|webp|png)$/i.test(file)) continue;
+    const slug = file.replace(/-\d+\.(svg|webp|png)$/i, '');
+    if (!map.has(slug)) map.set(slug, []);
+    map.get(slug).push(`https://babyskinlab.com/diagrams/${encodeURIComponent(file)}`);
+  }
+  return map;
+}
+const diagramMap = buildDiagramMap();
+
 export default defineConfig({
   site: 'https://babyskinlab.com',
   trailingSlash: 'always',
   integrations: [
     sitemap({
       serialize(item) {
+        const result = { ...item };
         let lm = lastmodMap.get(item.url);
         if (!lm) lm = lastmodMap.get(decodeURIComponent(item.url));
-        if (lm) return { ...item, lastmod: `${lm}T00:00:00+09:00` };
-        return item;
+        if (lm) result.lastmod = `${lm}T00:00:00+09:00`;
+
+        const m = decodeURIComponent(item.url).match(/\/guides\/([^\/]+)\/$/);
+        if (m && diagramMap.has(m[1])) {
+          result.img = diagramMap.get(m[1]).map((url) => ({ url }));
+        }
+        return result;
       },
     }),
   ],

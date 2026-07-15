@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+  <text x="600" y="80" text-anchor="middle" font-size="38" font-weight="800" fill="#0f172a">목욕 후 3분, 보습의 골든타임</text>
+  <text x="600" y="122" text-anchor="middle" font-size="22" fill="#64748b">피부에 수분이 남아 있을 때 발라야 수분이 갇혀요</text>
+
+  <!-- 타임라인 축 -->
+  <line x1="120" y1="240" x2="1060" y2="240" stroke="#e2e8f0" stroke-width="6" stroke-linecap="round"/>
+  <!-- 골든타임 구간 -->
+  <line x1="120" y1="240" x2="440" y2="240" stroke="#0ea5a4" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="120" cy="240" r="14" fill="#0ea5a4"/>
+  <circle cx="440" cy="240" r="14" fill="#0ea5a4"/>
+  <circle cx="1040" cy="240" r="12" fill="#cbd5e1"/>
+  <text x="120" y="200" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">목욕 끝</text>
+  <text x="440" y="200" text-anchor="middle" font-size="24" font-weight="800" fill="#0b8483">3분</text>
+  <text x="1040" y="200" text-anchor="middle" font-size="24" fill="#64748b">10분</text>
+  <rect x="150" y="264" width="260" height="44" rx="22" fill="#e6f7f7"/>
+  <text x="280" y="293" text-anchor="middle" font-size="22" font-weight="800" fill="#0b8483">지금 바르세요</text>
+  <text x="800" y="293" text-anchor="middle" font-size="21" fill="#94a3b8">시간이 갈수록 수분 증발</text>
+
+  <!-- 좌: 3분 안 보습 -->
+  <g>
+    <rect x="120" y="370" width="440" height="330" rx="18" fill="none" stroke="#0ea5a4" stroke-width="3"/>
+    <text x="340" y="422" text-anchor="middle" font-size="26" font-weight="800" fill="#0b8483">3분 안에 바르면</text>
+    <!-- 피부 단면: 보습막 -->
+    <rect x="170" y="560" width="340" height="60" rx="8" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="2"/>
+    <path d="M170 552 Q340 528 510 552" fill="none" stroke="#0b8483" stroke-width="6" stroke-linecap="round"/>
+    <text x="340" y="598" text-anchor="middle" font-size="20" fill="#0b8483">수분을 머금은 피부</text>
+    <circle cx="250" cy="500" r="10" fill="#0ea5a4" opacity="0.7"/>
+    <circle cx="340" cy="486" r="12" fill="#0ea5a4" opacity="0.7"/>
+    <circle cx="430" cy="500" r="10" fill="#0ea5a4" opacity="0.7"/>
+    <text x="340" y="668" text-anchor="middle" font-size="21" font-weight="700" fill="#0f172a">보습막이 수분을 가둬요</text>
+  </g>
+
+  <!-- 우: 방치 -->
+  <g>
+    <rect x="640" y="370" width="440" height="330" rx="18" fill="none" stroke="#e2e8f0" stroke-width="3"/>
+    <text x="860" y="422" text-anchor="middle" font-size="26" font-weight="800" fill="#94a3b8">그냥 두면</text>
+    <rect x="690" y="560" width="340" height="60" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="860" y="598" text-anchor="middle" font-size="20" fill="#94a3b8">말라가는 피부</text>
+    <!-- 증발 화살표 -->
+    <g stroke="#94a3b8" stroke-width="4" stroke-linecap="round">
+      <line x1="770" y1="540" x2="770" y2="478"/>
+      <line x1="860" y1="540" x2="860" y2="466"/>
+      <line x1="950" y1="540" x2="950" y2="478"/>
+    </g>
+    <g fill="#94a3b8">
+      <polygon points="770,464 760,484 780,484"/>
+      <polygon points="860,452 850,472 870,472"/>
+      <polygon points="950,464 940,484 960,484"/>
+    </g>
+    <text x="860" y="668" text-anchor="middle" font-size="21" font-weight="700" fill="#64748b">수분이 증발하며 더 건조해져요</text>
+  </g>
+
+  <text x="1180" y="788" text-anchor="end" font-size="18" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

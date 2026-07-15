@@ -181,3 +181,8 @@ body { line-height: 1.65; font-size: 16px; }
 /* 입력 힌트 박스 (성분 체커 등) */
 .hint-box { background: var(--c-primary-pale); border-radius: 12px; padding: 14px 16px; margin: 14px 0; font-size: 0.85rem; color: var(--c-primary-dark); line-height: 1.6; }
 .hint-box strong { font-weight: 800; }
+
+/* 다이어그램 figure (IMAGE_GUIDE 4절 — 표시 폭 60-75%, CLS 방지) */
+.article figure { margin: 26px auto; max-width: 640px; }
+.article figure img { width: 100%; height: auto; display: block; border: 1px solid var(--c-line); border-radius: 12px; }
+.article figcaption { font-size: 0.83rem; color: var(--c-ink-soft); text-align: center; margin-top: 8px; line-height: 1.5; }

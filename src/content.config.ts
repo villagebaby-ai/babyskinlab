@@ -11,6 +11,7 @@ const guides = defineCollection({
     relatedTool: z.string().optional(),
     keywords: z.array(z.string()).optional(),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+    images: z.array(z.object({ src: z.string(), alt: z.string(), caption: z.string() })).optional(),
   }),
 });
 
