@@ -1,48 +1,49 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif">
   <rect width="1200" height="800" fill="#ffffff"/>
-  <text x="600" y="80" text-anchor="middle" font-size="38" font-weight="800" fill="#0f172a">보습제 제형 = 수분과 유분의 비율</text>
-  <text x="600" y="122" text-anchor="middle" font-size="22" fill="#64748b">비율이 달라지면 발림성과 보호막 지속력이 달라져요</text>
 
   <!-- 로션 -->
   <g>
-    <rect x="120" y="200" width="240" height="360" rx="20" fill="none" stroke="#0ea5a4" stroke-width="3"/>
-    <rect x="132" y="212" width="216" height="228" rx="10" fill="#e6f7f7"/>
-    <rect x="132" y="448" width="216" height="100" rx="10" fill="#fef3c7"/>
-    <text x="240" y="336" text-anchor="middle" font-size="26" font-weight="700" fill="#0b8483">수분 70%</text>
-    <text x="240" y="506" text-anchor="middle" font-size="24" font-weight="700" fill="#92400e">유분 30%</text>
-    <text x="240" y="612" text-anchor="middle" font-size="30" font-weight="800" fill="#0f172a">로션</text>
-    <text x="240" y="650" text-anchor="middle" font-size="21" fill="#64748b">가볍고 빠른 흡수</text>
-    <text x="240" y="680" text-anchor="middle" font-size="21" fill="#64748b">데일리 전신 보습</text>
+    <rect x="90" y="120" width="300" height="440" rx="20" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+    <rect x="90" y="428" width="300" height="132" rx="20" fill="#fef3c7"/>
+    <path d="M90 428 h300" stroke="#0ea5a4" stroke-width="5"/>
+    <rect x="90" y="120" width="300" height="440" rx="20" fill="none" stroke="#0ea5a4" stroke-width="5"/>
+    <text x="240" y="300" text-anchor="middle" font-size="96" font-weight="800" fill="#0b8483">7</text>
+    <text x="240" y="512" text-anchor="middle" font-size="60" font-weight="800" fill="#92400e">3</text>
+    <text x="240" y="640" text-anchor="middle" font-size="54" font-weight="800" fill="#0f172a">로션</text>
+    <text x="240" y="700" text-anchor="middle" font-size="38" fill="#64748b">가볍게</text>
   </g>
 
   <!-- 크림 -->
   <g>
-    <rect x="480" y="200" width="240" height="360" rx="20" fill="none" stroke="#0ea5a4" stroke-width="3"/>
-    <rect x="492" y="212" width="216" height="164" rx="10" fill="#e6f7f7"/>
-    <rect x="492" y="384" width="216" height="164" rx="10" fill="#fef3c7"/>
-    <text x="600" y="304" text-anchor="middle" font-size="26" font-weight="700" fill="#0b8483">수분 50%</text>
-    <text x="600" y="476" text-anchor="middle" font-size="26" font-weight="700" fill="#92400e">유분 50%</text>
-    <text x="600" y="612" text-anchor="middle" font-size="30" font-weight="800" fill="#0f172a">크림</text>
-    <text x="600" y="650" text-anchor="middle" font-size="21" fill="#64748b">균형 잡힌 보호막</text>
-    <text x="600" y="680" text-anchor="middle" font-size="21" fill="#64748b">건조 피부·겨울</text>
+    <rect x="450" y="120" width="300" height="440" rx="20" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+    <rect x="450" y="340" width="300" height="220" rx="20" fill="#fef3c7"/>
+    <path d="M450 340 h300" stroke="#0ea5a4" stroke-width="5"/>
+    <rect x="450" y="120" width="300" height="440" rx="20" fill="none" stroke="#0ea5a4" stroke-width="5"/>
+    <text x="600" y="258" text-anchor="middle" font-size="80" font-weight="800" fill="#0b8483">5</text>
+    <text x="600" y="478" text-anchor="middle" font-size="80" font-weight="800" fill="#92400e">5</text>
+    <text x="600" y="640" text-anchor="middle" font-size="54" font-weight="800" fill="#0f172a">크림</text>
+    <text x="600" y="700" text-anchor="middle" font-size="38" fill="#64748b">균형</text>
   </g>
 
   <!-- 연고 -->
   <g>
-    <rect x="840" y="200" width="240" height="360" rx="20" fill="none" stroke="#0ea5a4" stroke-width="3"/>
-    <rect x="852" y="212" width="216" height="60" rx="10" fill="#e6f7f7"/>
-    <rect x="852" y="280" width="216" height="268" rx="10" fill="#fef3c7"/>
-    <text x="960" y="252" text-anchor="middle" font-size="24" font-weight="700" fill="#0b8483">수분 20%</text>
-    <text x="960" y="424" text-anchor="middle" font-size="26" font-weight="700" fill="#92400e">유분 80%</text>
-    <text x="960" y="612" text-anchor="middle" font-size="30" font-weight="800" fill="#0f172a">연고·밤</text>
-    <text x="960" y="650" text-anchor="middle" font-size="21" fill="#64748b">가장 강한 밀폐 보호</text>
-    <text x="960" y="680" text-anchor="middle" font-size="21" fill="#64748b">좁은 부위 집중 케어</text>
+    <rect x="810" y="120" width="300" height="440" rx="20" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+    <rect x="810" y="208" width="300" height="352" rx="20" fill="#fef3c7"/>
+    <path d="M810 208 h300" stroke="#0ea5a4" stroke-width="5"/>
+    <rect x="810" y="120" width="300" height="440" rx="20" fill="none" stroke="#0ea5a4" stroke-width="5"/>
+    <text x="960" y="188" text-anchor="middle" font-size="52" font-weight="800" fill="#0b8483">2</text>
+    <text x="960" y="412" text-anchor="middle" font-size="96" font-weight="800" fill="#92400e">8</text>
+    <text x="960" y="640" text-anchor="middle" font-size="54" font-weight="800" fill="#0f172a">연고</text>
+    <text x="960" y="700" text-anchor="middle" font-size="38" fill="#64748b">오래</text>
   </g>
 
-  <!-- 화살표: 강도 증가 -->
-  <line x1="180" y1="736" x2="1000" y2="736" stroke="#0ea5a4" stroke-width="3" stroke-linecap="round"/>
-  <polygon points="1020,736 996,726 996,746" fill="#0ea5a4"/>
-  <text x="600" y="726" text-anchor="middle" font-size="20" font-weight="700" fill="#0b8483">보호막 지속력 증가 →</text>
+  <!-- 범례 -->
+  <g>
+    <rect x="316" y="736" width="40" height="40" rx="10" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="4"/>
+    <text x="370" y="769" font-size="42" font-weight="700" fill="#0b8483">수분</text>
+    <rect x="620" y="736" width="40" height="40" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="4"/>
+    <text x="674" y="769" font-size="42" font-weight="700" fill="#92400e">유분</text>
+  </g>
 
-  <text x="1180" y="788" text-anchor="end" font-size="18" fill="#cbd5e1">babyskinlab.com</text>
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
 </svg>
