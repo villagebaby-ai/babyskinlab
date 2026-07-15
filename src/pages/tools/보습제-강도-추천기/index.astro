@@ -1,0 +1,157 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+const toolSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: '아기 보습제 강도 추천기',
+  url: 'https://babyskinlab.com/tools/보습제-강도-추천기/',
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'Web',
+  description: '월령·피부 상태·계절·아토피 가족력을 선택하면 로션·크림·고보습 크림 중 알맞은 보습 강도와 성분 기준, 하루 도포 횟수를 알려주는 무료 도구',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+  publisher: { '@type': 'Organization', name: '주식회사 빌리지베이비' },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: '로션과 크림은 무엇이 다른가요?', acceptedAnswer: { '@type': 'Answer', text: '수분과 유분의 비율 차이예요. 로션은 수분이 많아 가볍게 흡수되고, 크림은 유분이 많아 보호막이 오래 유지돼요. 피부가 건조할수록, 계절이 추울수록 크림 쪽이 유리해요.' } },
+    { '@type': 'Question', name: '신생아에게 크림을 발라도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '생후 1개월 미만은 피지 분비가 활발해지는 시기라 두꺼운 제형이 모공을 막을 수 있어요. 이 시기엔 가벼운 로션을 얇게 바르는 것이 기본이고, 건조가 심한 부위에만 부분적으로 크림을 쓰는 게 안전해요.' } },
+    { '@type': 'Question', name: '하루에 몇 번 발라야 하나요?', acceptedAnswer: { '@type': 'Answer', text: '기본은 하루 2회, 건조하거나 발진이 있으면 3-4회까지 늘려요. 횟수보다 중요한 건 타이밍으로, 목욕 직후 3분 안에 바르는 한 번이 가장 효과가 커요.' } },
+  ],
+};
+---
+<Base
+  title="아기 보습제 강도 추천기"
+  description="우리 아기에겐 로션이 맞을까, 크림이 맞을까요? 월령·피부 상태·계절·아토피 가족력 4가지를 선택하면 알맞은 보습 강도와 성분 기준, 하루 도포 횟수를 알려드려요."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(toolSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="wrap">
+    <div class="hero" style="padding-bottom: 8px;">
+      <h1>보습제 <em>강도 추천기</em></h1>
+      <p>로션? 크림? 우리 아기에게 맞는 강도를 알려드려요.</p>
+    </div>
+
+    <div class="checker" id="tool">
+      <div class="step-label">아기 월령</div>
+      <div class="opt-grid" data-group="age" style="margin-bottom:18px;">
+        <button class="opt" data-v="a0">0-1개월</button>
+        <button class="opt" data-v="a1">1-3개월</button>
+        <button class="opt" data-v="a3">3-6개월</button>
+        <button class="opt" data-v="a6">6-12개월</button>
+        <button class="opt" data-v="a12">12개월 이상</button>
+      </div>
+      <div class="step-label">지금 피부 상태</div>
+      <div class="opt-grid" data-group="skin" style="margin-bottom:18px;">
+        <button class="opt" data-v="normal">매끈하고 정상</button>
+        <button class="opt" data-v="dry">건조하고 거침</button>
+        <button class="opt" data-v="rash">발진·붉음 있음</button>
+      </div>
+      <div class="step-label">계절</div>
+      <div class="opt-grid" data-group="season" style="margin-bottom:18px;">
+        <button class="opt" data-v="mid">봄·가을</button>
+        <button class="opt" data-v="summer">여름</button>
+        <button class="opt" data-v="winter">겨울</button>
+      </div>
+      <div class="step-label">아토피·알레르기 가족력</div>
+      <div class="opt-grid" data-group="family" style="margin-bottom:18px;">
+        <button class="opt" data-v="yes">있어요</button>
+        <button class="opt" data-v="no">없어요</button>
+      </div>
+      <div class="step-nav">
+        <span></span>
+        <button class="btn btn-primary" id="btn-go" disabled>결과 보기 ✓</button>
+      </div>
+    </div>
+
+    <div id="result-area"></div>
+  </section>
+
+  <script>
+    const answers = { age: null, skin: null, season: null, family: null };
+    const btnGo = document.getElementById('btn-go');
+    const resultArea = document.getElementById('result-area');
+
+    document.querySelectorAll('.opt-grid').forEach((grid) => {
+      grid.querySelectorAll('.opt').forEach((b) => {
+        b.addEventListener('click', () => {
+          const g = grid.dataset.group;
+          answers[g] = b.dataset.v;
+          grid.querySelectorAll('.opt').forEach((x) => x.classList.remove('sel'));
+          b.classList.add('sel');
+          btnGo.disabled = !Object.values(answers).every(Boolean);
+        });
+      });
+    });
+
+    const LEVELS = {
+      1: {
+        name: '로션 (가벼운 강도)', emoji: '🧴',
+        desc: '수분 위주의 가벼운 제형이면 충분해요. 얇게 자주가 원칙이에요.',
+        freq: '하루 2회 (아침 · 목욕 직후 3분 안)',
+        example: '기준 예시: 러베 5중 세라마이드 로션',
+      },
+      2: {
+        name: '크림 (중간 강도)', emoji: '🫙',
+        desc: '수분과 유분이 균형 잡힌 크림으로 보호막을 조금 더 오래 유지해주세요.',
+        freq: '하루 2-3회 (목욕 직후 3분 안 + 아침 + 건조해 보일 때)',
+        example: '기준 예시: 러베 세라마이드 고보습 크림',
+      },
+      3: {
+        name: '고보습 크림 (강한 강도)', emoji: '🛡️',
+        desc: '유분 비중이 높은 고보습 제형으로 무너진 장벽을 채워주는 단계예요. 상태가 계속되면 진료도 함께 고려해주세요.',
+        freq: '하루 3-4회 (목욕 직후 3분 안 필수 + 낮 동안 거친 부위 덧바르기)',
+        example: '기준 예시: 러베 세라마이드 고보습 크림 (거친 부위 집중)',
+      },
+    };
+
+    btnGo.addEventListener('click', () => {
+      let level = answers.skin === 'normal' ? 1 : answers.skin === 'dry' ? 2 : 3;
+      if (answers.season === 'winter') level += 1;
+      if (answers.season === 'summer') level -= 1;
+      if (answers.family === 'yes') level += 1;
+      level = Math.max(1, Math.min(3, level));
+
+      let capNote = '';
+      if (answers.age === 'a0' && level > 2) {
+        level = 2;
+        capNote = '생후 1개월 미만은 피지선이 활발해지는 시기라 너무 두꺼운 제형은 모공을 막을 수 있어요. 강도를 한 단계 낮춰 크림을 얇게 바르는 것으로 안내드려요.';
+      }
+      const L = LEVELS[level];
+      const familyNote = answers.family === 'yes'
+        ? '가족력이 있는 아기는 생후 첫 몇 주부터 매일 보습을 챙기는 것이 아토피 발생 위험을 낮춘다는 연구가 있어요. 오늘부터 루틴을 만들어주세요.'
+        : '';
+      const rashNote = answers.skin === 'rash'
+        ? '발진이 4주 이상 지속되거나 진물·가려움이 함께 보이면 보습만으로는 부족할 수 있어요. <a href="/tools/아기-피부-증상-진단기/">증상 진단기</a>로 상태를 먼저 확인해보세요.'
+        : '';
+
+      resultArea.innerHTML = `<div class="result-card">
+        <span class="verdict-badge high">추천 강도</span>
+        <h2>${L.emoji} ${L.name}</h2>
+        <p style="margin:12px 0 4px;font-size:.95rem;">${L.desc}</p>
+        ${capNote ? `<p style="margin:10px 0;font-size:.88rem;color:#92400e;background:#fef3c7;border-radius:10px;padding:12px 14px;">${capNote}</p>` : ''}
+        <div class="criteria"><h4>성분 기준 — 이걸 확인하세요</h4>
+          <ul>
+            <li>세라마이드 함유 (피부 장벽을 채우는 지질 성분)</li>
+            <li>약산성 pH (건강한 피부막과 같은 산도)</li>
+            <li>무향·무색소 (자극 가능성 최소화)</li>
+          </ul>
+          <p class="example">${L.example}</p>
+        </div>
+        <div class="criteria"><h4>도포 루틴</h4><p style="font-size:.92rem;">${L.freq}</p>
+          <p style="font-size:.85rem;color:var(--c-ink-soft);margin-top:8px;">가장 중요한 한 번은 목욕 직후예요. 물기가 살짝 남은 상태에서 3분 안에 바르면 수분이 갇혀 효과가 가장 커요.</p>
+        </div>
+        ${familyNote ? `<p style="font-size:.88rem;color:var(--c-ink-soft);">${familyNote}</p>` : ''}
+        ${rashNote ? `<p style="font-size:.88rem;color:var(--c-ink-soft);">${rashNote}</p>` : ''}
+        <div class="disclaimer-inline">이 결과는 일반적인 케어 기준 안내이며 의학적 진단·처방이 아니에요. 발진이 지속되면 소아청소년과 진료를 받아주세요.</div>
+      </div>`;
+      resultArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</Base>

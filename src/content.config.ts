@@ -9,6 +9,8 @@ const guides = defineCollection({
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),
     relatedTool: z.string().optional(),
+    keywords: z.array(z.string()).optional(),
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   }),
 });
 

@@ -1,0 +1,152 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+const toolSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: '아기 화장품 전성분 안전 체커',
+  url: 'https://babyskinlab.com/tools/전성분-안전-체커/',
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'Web',
+  description: '아기 화장품 전성분을 붙여넣으면 영유아 기준으로 주의 깊게 볼 성분을 하이라이트해주는 무료 도구',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+  publisher: { '@type': 'Organization', name: '주식회사 빌리지베이비' },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: '주의 성분이 있으면 그 제품은 쓰면 안 되나요?', acceptedAnswer: { '@type': 'Answer', text: '반드시 그렇지는 않아요. 성분의 위험은 함량과 배합, 아기의 피부 상태에 따라 달라지고, 이 도구는 함량을 알 수 없어요. 다만 같은 조건이라면 주의 성분이 적은 제품을 고르는 것이 안전 마진을 넓히는 선택이에요.' } },
+    { '@type': 'Question', name: '어떤 기준으로 주의 성분을 정했나요?', acceptedAnswer: { '@type': 'Answer', text: '식품의약품안전처의 화장품 사용 제한 원료 기준, EU SCCS(소비자안전과학위원회) 의견서, 영유아 접촉 알레르기 문헌에서 반복적으로 언급되는 성분을 영유아 관점으로 분류했어요. 성분 사전은 계속 업데이트돼요.' } },
+    { '@type': 'Question', name: '전성분은 어디서 확인하나요?', acceptedAnswer: { '@type': 'Answer', text: '제품 뒷면 라벨이나 판매 페이지의 전성분 표기에서 확인할 수 있어요. 화장품법상 모든 화장품은 전성분을 표기하게 되어 있어요. 표기 순서는 함량이 많은 순이라 앞쪽 성분일수록 비중이 커요.' } },
+  ],
+};
+---
+<Base
+  title="아기 화장품 전성분 안전 체커"
+  description="아기 로션·크림·워시의 전성분을 붙여넣어 보세요. 영유아 기준으로 주의 깊게 볼 성분(향료·변성알코올·정유·설페이트 등)을 하이라이트하고 이유를 설명해드려요."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(toolSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="wrap">
+    <div class="hero" style="padding-bottom: 8px;">
+      <h1>전성분 <em>안전 체커</em></h1>
+      <p>전성분을 붙여넣으면 아기 기준 주의 성분을 짚어드려요.</p>
+    </div>
+
+    <div class="checker">
+      <div class="step-label">전성분 입력</div>
+      <div class="step-q" style="font-size:1rem;">제품 라벨의 전성분을 그대로 붙여넣어 주세요 (쉼표로 구분)</div>
+      <textarea id="ing-input" class="ing-textarea" placeholder="예: 정제수, 글리세린, 세테아릴알코올, 향료, 페녹시에탄올, ..."></textarea>
+      <div class="step-nav">
+        <span></span>
+        <button class="btn btn-primary" id="btn-check">분석하기 ✓</button>
+      </div>
+    </div>
+
+    <div id="result-area"></div>
+  </section>
+
+  <script>
+    // 영유아 기준 주의 성분 사전 v1 (식약처 사용제한 원료·EU SCCS·영유아 접촉 알레르기 문헌 기반)
+    // level: avoid(영유아 제한·회피 권장) / warn(민감 피부 주의) / info(참고)
+    const DICT = [
+      { m: ['살리실릭애씨드', '살리실산'], n: '살리실릭애씨드(BHA)', level: 'avoid', why: '식약처 기준 3세 미만 어린이 사용 제한 성분이에요 (씻어내는 제품 제외).' },
+      { m: ['메칠이소치아졸리논', '메틸이소치아졸리논', '메칠클로로이소치아졸리논', '메틸클로로이소치아졸리논'], n: 'MIT/CMIT 보존제', level: 'avoid', why: '접촉 알레르기 보고가 많아 씻어내지 않는 제품엔 사용이 금지된 보존제예요.' },
+      { m: ['트리클로산'], n: '트리클로산', level: 'avoid', why: '내분비계 영향 우려로 여러 국가에서 사용이 제한되고 있는 항균 성분이에요.' },
+      { m: ['벤조페논'], n: '벤조페논 계열', level: 'avoid', why: '자외선 차단 성분 중 피부 흡수와 알레르기 우려가 상대적으로 커서 영유아 제품에선 피하는 흐름이에요.' },
+      { m: ['향료', '프래그런스', 'fragrance', 'parfum'], n: '향료', level: 'warn', why: '영유아 접촉 알레르기의 흔한 원인이에요. "향료" 한 단어 뒤에 수십 가지 성분이 숨을 수 있어요.' },
+      { m: ['리모넨', '리날룰', '시트로넬올', '제라니올', '유제놀', '쿠마린', '시트랄', '벤질알코올', '벤질살리실레이트', '헥실신남알', '신나밀알코올'], n: '착향 알레르기 유발 성분', level: 'warn', why: 'EU 기준 표기 의무가 있는 착향 알레르겐이에요. 민감한 아기 피부엔 자극 가능성이 있어요.' },
+      { m: ['변성알코올', '에탄올', '알코올denat', 'alcohol denat'], n: '변성알코올·에탄올', level: 'warn', why: '휘발하며 피부 수분을 함께 빼앗아 건조한 아기 피부엔 자극이 될 수 있어요.' },
+      { m: ['라벤더오일', '티트리잎오일', '유칼립투스잎오일', '페퍼민트오일', '로즈마리잎오일', '오렌지껍질오일', '레몬껍질오일', '베르가못'], n: '에센셜 오일(정유)', level: 'warn', why: '천연이지만 알레르기 유발 성분을 포함할 수 있어 영유아 저자극 제품에선 배제하는 흐름이에요.' },
+      { m: ['소듐라우릴설페이트', '소듐라우레스설페이트'], n: '설페이트 계면활성제', level: 'warn', why: '세정력이 강한 만큼 피부 지질까지 씻어내 건조·자극을 만들 수 있어요.' },
+      { m: ['메틸파라벤', '메칠파라벤', '프로필파라벤', '부틸파라벤', '에틸파라벤'], n: '파라벤 보존제', level: 'warn', why: '법정 한도 내에선 안전하지만, 일부(부틸·프로필)는 영유아 제품에서 배제하는 추세예요.' },
+      { m: ['적색', '황색', '청색', '녹색'], n: '타르 색소', level: 'warn', why: '착색 목적 성분으로 아기 스킨케어에는 굳이 필요하지 않아요.' },
+      { m: ['페녹시에탄올'], n: '페녹시에탄올', level: 'info', why: '가장 널리 쓰이는 보존제로 법정 한도(1%) 내에선 안전성이 확인돼 있어요. 참고로 알아두세요.' },
+      { m: ['피이지', 'peg-'], n: 'PEG 계열', level: 'info', why: '유화·세정 보조 성분으로 완제품 기준 안전성은 확인돼 있지만, 손상된 피부엔 최소화가 권장돼요.' },
+      { m: ['미네랄오일', '페트롤라툼'], n: '미네랄오일·페트롤라툼', level: 'info', why: '정제 등급이 높으면 안전한 밀폐 보습 성분이에요. 화장품용은 고순도 정제를 사용해요.' },
+      { m: ['라놀린'], n: '라놀린', level: 'info', why: '양모 유래 보습 성분으로, 드물게 알레르기가 보고돼 민감한 아기라면 참고하세요.' },
+    ];
+
+    const GOOD = [
+      { m: ['세라마이드'], n: '세라마이드' },
+      { m: ['판테놀'], n: '판테놀' },
+      { m: ['히알루로', '하이알루로'], n: '히알루론산' },
+      { m: ['글리세린'], n: '글리세린' },
+      { m: ['스쿠알란'], n: '스쿠알란' },
+      { m: ['시어버터'], n: '시어버터' },
+      { m: ['알란토인'], n: '알란토인' },
+      { m: ['마데카소사이드', '센텔라'], n: '센텔라 계열' },
+    ];
+
+    const btn = document.getElementById('btn-check');
+    const input = document.getElementById('ing-input');
+    const resultArea = document.getElementById('result-area');
+
+    btn.addEventListener('click', () => {
+      const raw = input.value.trim();
+      if (!raw) { input.focus(); return; }
+      const tokens = raw.split(/[,\n·]+/).map((t) => t.trim()).filter((t) => t.length > 0);
+      const norm = (s) => s.toLowerCase().replace(/\s+/g, '');
+
+      const hits = [];
+      const goodHits = [];
+      const tagged = tokens.map((t) => {
+        const nt = norm(t);
+        for (const d of DICT) {
+          if (d.m.some((k) => nt.includes(norm(k)))) {
+            if (!hits.find((h) => h.n === d.n)) hits.push(d);
+            return { t, level: d.level };
+          }
+        }
+        for (const g of GOOD) {
+          if (g.m.some((k) => nt.includes(norm(k)))) {
+            if (!goodHits.includes(g.n)) goodHits.push(g.n);
+            return { t, level: 'good' };
+          }
+        }
+        return { t, level: 'none' };
+      });
+
+      const avoidN = hits.filter((h) => h.level === 'avoid').length;
+      const warnN = hits.filter((h) => h.level === 'warn').length;
+
+      let verdict, badgeCls;
+      if (avoidN > 0) { verdict = '주의가 필요한 성분이 있어요'; badgeCls = 'mid'; }
+      else if (warnN >= 3) { verdict = '민감 피부라면 확인이 필요해요'; badgeCls = 'mid'; }
+      else if (warnN > 0) { verdict = '대체로 무난하지만 참고할 성분이 있어요'; badgeCls = 'high'; }
+      else { verdict = '주의 성분이 발견되지 않았어요'; badgeCls = 'high'; }
+
+      let html = `<div class="result-card">
+        <span class="verdict-badge ${badgeCls}">분석 결과</span>
+        <h2>${verdict}</h2>
+        <div class="ing-summary">
+          <div class="ing-stat"><div class="num">${tokens.length}</div><div class="lbl">전체 성분</div></div>
+          <div class="ing-stat"><div class="num" style="color:var(--c-alert)">${avoidN}</div><div class="lbl">회피 권장</div></div>
+          <div class="ing-stat"><div class="num" style="color:var(--c-warn)">${warnN}</div><div class="lbl">민감 시 주의</div></div>
+          <div class="ing-stat"><div class="num" style="color:var(--c-good)">${goodHits.length}</div><div class="lbl">보습·진정 성분</div></div>
+        </div>
+        <div style="margin:14px 0;">${tagged.map((x) => `<span class="ing-tag ${x.level === 'avoid' ? 'avoid' : x.level === 'warn' ? 'warn' : ''}">${x.t}</span>`).join('')}</div>`;
+
+      if (hits.length) {
+        html += `<h4 style="margin:18px 0 8px;font-size:.95rem;">짚어볼 성분</h4>`;
+        for (const h of hits.sort((a, b) => (a.level === 'avoid' ? -1 : 1))) {
+          html += `<div class="routine-card"><h4>${h.level === 'avoid' ? '🔴' : '🟡'} ${h.n}</h4><p>${h.why}</p></div>`;
+        }
+      }
+      if (goodHits.length) {
+        html += `<p style="font-size:.88rem;color:var(--c-ink-soft);margin-top:14px;">🟢 보습·진정에 도움이 되는 성분: ${goodHits.join(', ')}</p>`;
+      }
+
+      html += `<div class="disclaimer-inline">이 분석은 성분명 기준 참고 정보예요. 성분의 실제 영향은 함량·배합·아기의 피부 상태에 따라 달라지며, 특정 제품의 품질 판정이 아니에요. 정확한 안전성 정보는 식약처 의약품안전나라에서 확인할 수 있어요.</div>
+      </div>`;
+
+      resultArea.innerHTML = html;
+      resultArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</Base>

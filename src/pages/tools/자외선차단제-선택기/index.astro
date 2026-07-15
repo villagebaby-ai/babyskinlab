@@ -1,0 +1,134 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+const toolSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: '아기 자외선차단제 선택기',
+  url: 'https://babyskinlab.com/tools/자외선차단제-선택기/',
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'Web',
+  description: '아기 월령과 외출 계획을 선택하면 무기자차·유기자차 판정, SPF/PA 기준, 도포량과 재도포 주기를 알려주는 무료 도구',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+  publisher: { '@type': 'Organization', name: '주식회사 빌리지베이비' },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: '아기 자외선차단제는 언제부터 발라도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '기본 원칙은 생후 6개월부터예요. 6개월 미만은 차단제보다 그늘·모자·긴옷으로 햇빛 자체를 피하는 것이 우선이고, 불가피하게 노출되는 좁은 부위에만 무기자차를 소량 쓸 수 있다는 것이 미국소아과학회의 입장이에요.' } },
+    { '@type': 'Question', name: '무기자차와 유기자차는 뭐가 다른가요?', acceptedAnswer: { '@type': 'Answer', text: '무기자차(징크옥사이드·티타늄디옥사이드)는 피부 표면에서 자외선을 반사하는 방식이고, 유기자차는 화학적으로 흡수해 열로 바꾸는 방식이에요. 영유아에겐 피부 흡수와 자극 가능성이 낮은 무기자차가 우선 권장돼요.' } },
+    { '@type': 'Question', name: '얼마나 자주 다시 발라야 하나요?', acceptedAnswer: { '@type': 'Answer', text: '2시간마다가 기본이에요. 물놀이나 땀을 많이 흘렸다면 워터레지스턴트 제품이라도 수건으로 닦은 뒤엔 바로 다시 발라야 해요.' } },
+  ],
+};
+---
+<Base
+  title="아기 자외선차단제 선택기"
+  description="우리 아기에겐 어떤 자외선차단제가 맞을까요? 월령·외출 시간·물놀이 여부를 선택하면 무기자차/유기자차 판정과 SPF·PA 기준, 도포량·재도포 주기를 알려드려요. 6개월 미만 기준도 안내해요."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(toolSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="wrap">
+    <div class="hero" style="padding-bottom: 8px;">
+      <h1>자외선차단제 <em>선택기</em></h1>
+      <p>월령과 외출 계획에 맞는 차단제 기준을 알려드려요.</p>
+    </div>
+
+    <div class="checker">
+      <div class="step-label">아기 월령</div>
+      <div class="opt-grid" data-group="age" style="margin-bottom:18px;">
+        <button class="opt" data-v="a0">6개월 미만</button>
+        <button class="opt" data-v="a6">6-12개월</button>
+        <button class="opt" data-v="a12">12개월 이상</button>
+      </div>
+      <div class="step-label">외출 계획</div>
+      <div class="opt-grid" data-group="plan" style="margin-bottom:18px;">
+        <button class="opt" data-v="short">30분 이내 산책</button>
+        <button class="opt" data-v="mid">30분-2시간 나들이</button>
+        <button class="opt" data-v="long">2시간 이상·야외활동</button>
+        <button class="opt" data-v="water">물놀이</button>
+      </div>
+      <div class="step-label">피부 민감도</div>
+      <div class="opt-grid" data-group="sens" style="margin-bottom:18px;">
+        <button class="opt" data-v="normal">보통</button>
+        <button class="opt" data-v="sensitive">민감한 편 (트러블 잦음)</button>
+      </div>
+      <div class="step-nav">
+        <span></span>
+        <button class="btn btn-primary" id="btn-go" disabled>결과 보기 ✓</button>
+      </div>
+    </div>
+
+    <div id="result-area"></div>
+  </section>
+
+  <script>
+    const answers = { age: null, plan: null, sens: null };
+    const btnGo = document.getElementById('btn-go');
+    const resultArea = document.getElementById('result-area');
+
+    document.querySelectorAll('.opt-grid').forEach((grid) => {
+      grid.querySelectorAll('.opt').forEach((b) => {
+        b.addEventListener('click', () => {
+          answers[grid.dataset.group] = b.dataset.v;
+          grid.querySelectorAll('.opt').forEach((x) => x.classList.remove('sel'));
+          b.classList.add('sel');
+          btnGo.disabled = !Object.values(answers).every(Boolean);
+        });
+      });
+    });
+
+    btnGo.addEventListener('click', () => {
+      const { age, plan, sens } = answers;
+      let html;
+
+      if (age === 'a0') {
+        html = `<div class="result-card">
+          <span class="verdict-badge mid">6개월 미만 기준</span>
+          <h2>🏖️ 차단제보다 "햇빛 피하기"가 먼저예요</h2>
+          <p style="margin:12px 0;font-size:.95rem;">생후 6개월 미만 아기는 자외선차단제를 전신에 바르는 것보다 햇빛 노출 자체를 피하는 것이 원칙이에요 (미국소아과학회 기준). 피부가 얇아 성분 흡수 비율이 높고, 땀샘 발달이 미숙해 열 배출도 어렵기 때문이에요.</p>
+          <ol class="action-list">
+            <li><span class="n">1</span><span>오전 10시-오후 4시의 강한 햇빛 시간대 외출은 가능한 피해주세요.</span></li>
+            <li><span class="n">2</span><span>유모차 차양·챙 넓은 모자·얇은 긴옷으로 물리적으로 가려주세요.</span></li>
+            <li><span class="n">3</span><span>그늘이 없는 곳에서 얼굴·손등처럼 가릴 수 없는 좁은 부위만, 무기자차(징크옥사이드·티타늄디옥사이드)를 소량 바를 수 있어요.</span></li>
+          </ol>
+          <div class="disclaimer-inline">이 안내는 일반 기준이며, 아기 피부 상태에 따라 소아청소년과와 상의해주세요.</div>
+        </div>`;
+      } else {
+        const type = sens === 'sensitive'
+          ? '무기자차 (징크옥사이드·티타늄디옥사이드)'
+          : '무기자차 우선 (민감하지 않다면 혼합자차도 가능)';
+        let spf, extra;
+        if (plan === 'short') { spf = 'SPF 30 · PA++ 이상'; extra = '짧은 산책이라면 크림을 두껍게 쌓기보다 모자를 함께 챙기는 게 효율적이에요.'; }
+        else if (plan === 'mid') { spf = 'SPF 30-50 · PA+++ 이상'; extra = '2시간을 넘길 수 있다면 외출 가방에 차단제를 챙겨 재도포를 준비해주세요.'; }
+        else if (plan === 'long') { spf = 'SPF 50 · PA++++ '; extra = '장시간 야외활동은 차단제만으로 부족해요. 모자·그늘 휴식을 1시간 간격으로 섞어주세요.'; }
+        else { spf = 'SPF 50 · PA++++ · 워터레지스턴트 표기 필수'; extra = '물놀이 중엔 워터레지스턴트 제품도 40-80분마다, 수건으로 닦은 뒤엔 즉시 다시 발라야 해요.'; }
+
+        html = `<div class="result-card">
+          <span class="verdict-badge high">추천 기준</span>
+          <h2>☀️ ${type}</h2>
+          <div class="routine-card"><h4>차단 지수</h4><div class="rc-val">${spf}</div><p>${extra}</p></div>
+          <div class="routine-card"><h4>도포량</h4><div class="rc-val">얼굴 기준 성인 손가락 한 마디 분량</div><p>얇게 펴 바르면 표기된 차단 지수가 나오지 않아요. 아까워하지 말고 충분히 발라주세요.</p></div>
+          <div class="routine-card"><h4>재도포</h4><div class="rc-val">${plan === 'water' ? '40-80분마다' : '2시간마다'}</div><p>외출 15-30분 전에 첫 도포를 마치면 흡수·정착에 좋아요.</p></div>
+          <div class="routine-card"><h4>귀가 후</h4><div class="rc-val">미온수·약산성 세정으로 꼼꼼히 씻기</div><p>차단제가 남으면 모공을 막을 수 있어요. 세정 후엔 보습을 잊지 마세요.</p></div>
+          <div class="criteria"><h4>성분 체크리스트</h4>
+            <ul>
+              <li>징크옥사이드 / 티타늄디옥사이드 (무기자차 성분)</li>
+              <li>무향·무색소</li>
+              <li>벤조페논 계열은 피하기</li>
+            </ul>
+            <p class="example">전성분이 궁금하다면 <a href="/tools/전성분-안전-체커/">전성분 안전 체커</a>에 붙여넣어 확인해보세요.</p>
+          </div>
+          <div class="disclaimer-inline">이 결과는 일반적인 선택 기준 안내이며 의학적 판단이 아니에요. 자외선 화상이 생겼다면 냉찜질 후 소아청소년과와 상의해주세요.</div>
+        </div>`;
+      }
+
+      resultArea.innerHTML = html;
+      resultArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</Base>

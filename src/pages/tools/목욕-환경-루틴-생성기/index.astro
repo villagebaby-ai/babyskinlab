@@ -1,0 +1,132 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+const toolSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: '아기 목욕·환경 루틴 생성기',
+  url: 'https://babyskinlab.com/tools/목욕-환경-루틴-생성기/',
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'Web',
+  description: '월령·계절·피부 고민을 선택하면 목욕 온도·시간·빈도와 실내 온습도, 보습 타이밍까지 맞춤 루틴 카드를 만들어주는 무료 도구',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+  publisher: { '@type': 'Organization', name: '주식회사 빌리지베이비' },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: '아기 목욕물 온도는 몇 도가 맞나요?', acceptedAnswer: { '@type': 'Answer', text: '체온과 비슷한 37-38도가 기준이에요. 어른 손으로는 미지근하게 느껴지는 정도로, 팔꿈치 안쪽을 담가 뜨겁지 않으면 적당해요. 40도가 넘는 물은 피부 지질을 씻어내 건조를 부추겨요.' } },
+    { '@type': 'Question', name: '매일 목욕시켜야 하나요?', acceptedAnswer: { '@type': 'Answer', text: '정답이 하나는 아니에요. 여름이나 땀이 많은 시기엔 매일이 좋고, 겨울철 건조한 피부라면 전신 목욕은 격일로 하고 얼굴·목·기저귀 부위만 매일 부분 세정하는 방식도 좋아요. 중요한 건 목욕 후 3분 안의 보습이에요.' } },
+    { '@type': 'Question', name: '실내 온도와 습도는 어떻게 맞추나요?', acceptedAnswer: { '@type': 'Answer', text: '온도 22-24도, 습도 50-60%가 기준이에요. 겨울 난방 중엔 습도가 30%대까지 떨어지기 쉬워 가습기가 사실상 필수이고, 여름엔 에어컨으로 온도를 잡되 직풍은 피해주세요.' } },
+  ],
+};
+---
+<Base
+  title="아기 목욕·환경 루틴 생성기"
+  description="아기 목욕 온도·시간·빈도, 실내 온습도, 보습 타이밍까지. 월령·계절·피부 고민 3가지를 선택하면 우리 아기 맞춤 목욕·환경 루틴 카드를 만들어드려요."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(toolSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="wrap">
+    <div class="hero" style="padding-bottom: 8px;">
+      <h1>목욕·환경 <em>루틴 생성기</em></h1>
+      <p>우리 아기 맞춤 목욕 온도·시간·환경 기준을 카드로 만들어드려요.</p>
+    </div>
+
+    <div class="checker">
+      <div class="step-label">아기 월령</div>
+      <div class="opt-grid" data-group="age" style="margin-bottom:18px;">
+        <button class="opt" data-v="a0">0-1개월</button>
+        <button class="opt" data-v="a1">1-6개월</button>
+        <button class="opt" data-v="a6">6-12개월</button>
+        <button class="opt" data-v="a12">12개월 이상</button>
+      </div>
+      <div class="step-label">계절</div>
+      <div class="opt-grid" data-group="season" style="margin-bottom:18px;">
+        <button class="opt" data-v="mid">봄·가을</button>
+        <button class="opt" data-v="summer">여름</button>
+        <button class="opt" data-v="winter">겨울</button>
+      </div>
+      <div class="step-label">피부 고민</div>
+      <div class="opt-grid" data-group="skin" style="margin-bottom:18px;">
+        <button class="opt" data-v="none">특별히 없음</button>
+        <button class="opt" data-v="heat">태열·열감</button>
+        <button class="opt" data-v="dry">건조·거침</button>
+      </div>
+      <div class="step-nav">
+        <span></span>
+        <button class="btn btn-primary" id="btn-go" disabled>루틴 만들기 ✓</button>
+      </div>
+    </div>
+
+    <div id="result-area"></div>
+  </section>
+
+  <script>
+    const answers = { age: null, season: null, skin: null };
+    const btnGo = document.getElementById('btn-go');
+    const resultArea = document.getElementById('result-area');
+
+    document.querySelectorAll('.opt-grid').forEach((grid) => {
+      grid.querySelectorAll('.opt').forEach((b) => {
+        b.addEventListener('click', () => {
+          answers[grid.dataset.group] = b.dataset.v;
+          grid.querySelectorAll('.opt').forEach((x) => x.classList.remove('sel'));
+          b.classList.add('sel');
+          btnGo.disabled = !Object.values(answers).every(Boolean);
+        });
+      });
+    });
+
+    btnGo.addEventListener('click', () => {
+      const { age, season, skin } = answers;
+
+      const bathTime = age === 'a0' ? '5분 이내' : age === 'a1' ? '5-10분' : '10분 이내';
+      let bathFreq;
+      if (season === 'summer') bathFreq = '매일 1회 (땀 많은 날은 미온수 부분 세정 추가)';
+      else if (season === 'winter' && skin === 'dry') bathFreq = '전신 목욕은 격일, 얼굴·목·기저귀 부위는 매일 부분 세정';
+      else bathFreq = '매일 1회';
+
+      const roomTemp = season === 'winter' ? '22-23도' : season === 'summer' ? '23-24도' : '22-24도';
+      const humidity = season === 'winter' ? '50-55% (가습기 필수)' : season === 'summer' ? '55-60% (에어컨 직풍 금지)' : '50-60%';
+
+      let moist;
+      if (skin === 'dry') moist = '목욕 직후 3분 안 + 하루 2-3회 덧바르기 (크림 강도 권장)';
+      else if (skin === 'heat') moist = '목욕 직후 3분 안, 얇게 1회 — 태열 시기 과보습은 피하기';
+      else moist = '목욕 직후 3분 안 + 아침 1회';
+
+      const clothes = skin === 'heat'
+        ? '어른 기준 한 겹 적게 (필수) — 열감이 있는 아기는 옷 한 겹이 태열 강도를 바꿔요'
+        : '어른 기준 한 겹 적게, 면 소재';
+
+      const extra = [];
+      if (age === 'a0') extra.push('탯줄이 아물기 전이라면 통목욕 대신 부분 세정(스펀지 배스)이 기준이에요.');
+      if (skin === 'heat') extra.push('시원하게 해줬는데도 24-48시간 안에 좋아지지 않으면 <a href="/tools/아기-피부-증상-진단기/">증상 진단기</a>로 상태를 확인해보세요.');
+      if (season === 'winter') extra.push('가습기는 매일 물을 갈고 주 1회 이상 세척해주세요. 관리 안 된 가습기는 오히려 위생 문제가 돼요.');
+
+      const cards = [
+        { icon: '🌡️', t: '목욕물 온도', v: '37-38도', d: '팔꿈치 안쪽을 담가 뜨겁지 않은 정도. 40도 이상은 피부 지질을 씻어내요.' },
+        { icon: '⏱️', t: '목욕 시간', v: bathTime, d: '길어질수록 피부 수분이 오히려 빠져나가요.' },
+        { icon: '📅', t: '목욕 빈도', v: bathFreq, d: '세정제는 약산성 무향으로 주 2-3회면 충분하고 나머지는 물 목욕도 좋아요.' },
+        { icon: '🏠', t: '실내 온도', v: roomTemp, d: '아기 침대 옆에 온습도계를 두고 확인하는 게 정확해요.' },
+        { icon: '💧', t: '실내 습도', v: humidity, d: '습도가 40% 아래로 떨어지면 피부 수분 증발이 빨라져요.' },
+        { icon: '🧴', t: '보습 타이밍', v: moist, d: '목욕 후 3분 안의 한 번이 하루 중 가장 효과가 커요.' },
+        { icon: '👕', t: '옷차림', v: clothes, d: '땀이 차면 태열·땀띠 모두 악화돼요.' },
+      ];
+
+      resultArea.innerHTML = `<div class="result-card">
+        <span class="verdict-badge high">맞춤 루틴</span>
+        <h2>🛁 우리 아기 목욕·환경 루틴</h2>
+        ${cards.map((c) => `<div class="routine-card"><h4>${c.icon} ${c.t}</h4><div class="rc-val">${c.v}</div><p>${c.d}</p></div>`).join('')}
+        ${extra.length ? `<div class="criteria"><h4>추가 안내</h4><ul>${extra.map((e) => `<li>${e}</li>`).join('')}</ul></div>` : ''}
+        <div class="disclaimer-inline">이 루틴은 일반적인 케어 기준이며 아기 상태에 따라 조절이 필요해요. 피부 이상이 지속되면 소아청소년과 진료를 받아주세요.</div>
+      </div>`;
+      resultArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</Base>

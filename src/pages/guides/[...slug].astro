@@ -22,18 +22,43 @@ const articleSchema = {
   author: { '@type': 'Organization', name: 'Baby Skin Lab' },
   publisher: { '@type': 'Organization', name: '주식회사 빌리지베이비' },
   inLanguage: 'ko',
+  ...(d.keywords?.length ? { keywords: d.keywords.join(', ') } : {}),
 };
+
+const faqSchema = d.faq?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: d.faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+  : null;
 ---
 <Base title={d.title} description={d.description} ogType="article">
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   </Fragment>
   <article class="article wrap">
     <h1>{d.title}</h1>
     <p class="meta">발행 {dateStr} · Baby Skin Lab</p>
     <Content />
+    {d.faq?.length && (
+      <section>
+        <h2>자주 묻는 질문</h2>
+        {d.faq.map((f) => (
+          <details class="faq-item" open>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </section>
+    )}
     {d.relatedTool && (
-      <a class="tool-cta" href={d.relatedTool}>🔍 아직 판정 전이라면 — 아기 피부 증상 진단기 사용해보기 →</a>
+      <a class="tool-cta" href={d.relatedTool}>🔍 글보다 빠른 답이 필요하다면 — 판정 도구 사용해보기 →</a>
     )}
   </article>
 </Base>
