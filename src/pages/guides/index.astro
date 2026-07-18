@@ -19,8 +19,11 @@ const guides = (await getCollection('guides')).sort(
       {guides.map((g) => (
         <li>
           <a href={`/guides/${g.id}/`}>
-            {g.data.title}
-            <span class="g-desc">{g.data.description}</span>
+            <img class="g-thumb" src={g.data.heroImage ?? `/og/${g.id}.png`} alt={g.data.heroAlt ?? g.data.title} width="1200" height="630" loading="lazy" />
+            <span class="g-body">
+              <span class="g-title">{g.data.title}</span>
+              <span class="g-desc">{g.data.description}</span>
+            </span>
           </a>
         </li>
       ))}

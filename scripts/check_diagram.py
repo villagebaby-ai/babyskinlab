@@ -51,11 +51,12 @@ def main():
         print(__doc__)
         sys.exit(1)
 
+    # 소스는 img-src (폰트 임베드 전 클린 SVG). 하위호환으로 public/diagrams도 탐색.
     arg = sys.argv[1]
     if arg == '--all':
-        paths = sorted(glob.glob('public/diagrams/*.svg'))
+        paths = sorted(glob.glob('img-src/*-[12].svg')) or sorted(glob.glob('public/diagrams/*.svg'))
     else:
-        paths = sorted(glob.glob(f'public/diagrams/{arg}-*.svg'))
+        paths = sorted(glob.glob(f'img-src/{arg}-[12].svg')) or sorted(glob.glob(f'public/diagrams/{arg}-*.svg'))
 
     if not paths:
         print(f'대상 파일 없음: {arg}')

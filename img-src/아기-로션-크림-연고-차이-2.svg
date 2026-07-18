@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 좌: 3분 안 (수분 갇힘) -->
+  <g>
+    <text x="300" y="120" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">3분</text>
+    <text x="300" y="182" text-anchor="middle" font-size="44" font-weight="700" fill="#0b8483">안에 바르면</text>
+
+    <!-- 보습막 뚜껑 -->
+    <rect x="120" y="300" width="360" height="34" rx="17" fill="#0ea5a4"/>
+    <!-- 피부 -->
+    <rect x="120" y="360" width="360" height="150" rx="18" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+    <!-- 갇힌 수분 방울 -->
+    <circle cx="200" cy="430" r="26" fill="#0ea5a4"/>
+    <circle cx="300" cy="430" r="26" fill="#0ea5a4"/>
+    <circle cx="400" cy="430" r="26" fill="#0ea5a4"/>
+    <!-- 막힌 화살표 (위로 못감) -->
+    <g stroke="#0ea5a4" stroke-width="6" stroke-linecap="round">
+      <line x1="200" y1="386" x2="200" y2="352"/>
+      <line x1="300" y1="386" x2="300" y2="352"/>
+      <line x1="400" y1="386" x2="400" y2="352"/>
+    </g>
+    <text x="300" y="600" text-anchor="middle" font-size="46" font-weight="800" fill="#0f172a">수분 갇힘</text>
+  </g>
+
+  <!-- 구분선 -->
+  <line x1="600" y1="140" x2="600" y2="660" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- 우: 10분 후 (증발) -->
+  <g>
+    <text x="900" y="120" text-anchor="middle" font-size="110" font-weight="800" fill="#94a3b8">10분</text>
+    <text x="900" y="182" text-anchor="middle" font-size="44" font-weight="700" fill="#94a3b8">후에는</text>
+
+    <!-- 증발 화살표 -->
+    <g stroke="#94a3b8" stroke-width="6" stroke-linecap="round">
+      <line x1="800" y1="330" x2="800" y2="260"/>
+      <line x1="900" y1="316" x2="900" y2="246"/>
+      <line x1="1000" y1="330" x2="1000" y2="260"/>
+    </g>
+    <g fill="#94a3b8">
+      <polygon points="800,238 784,268 816,268"/>
+      <polygon points="900,224 884,254 916,254"/>
+      <polygon points="1000,238 984,268 1016,268"/>
+    </g>
+    <!-- 피부 (뚜껑 없음) -->
+    <rect x="720" y="360" width="360" height="150" rx="18" fill="#f8fafc" stroke="#cbd5e1" stroke-width="5" stroke-dasharray="14 10"/>
+    <text x="900" y="600" text-anchor="middle" font-size="46" font-weight="800" fill="#64748b">수분 증발</text>
+  </g>
+
+  <!-- 범례 -->
+  <g>
+    <rect x="300" y="716" width="52" height="24" rx="12" fill="#0ea5a4"/>
+    <text x="366" y="746" font-size="42" font-weight="700" fill="#0b8483">보습막</text>
+    <circle cx="672" cy="728" r="20" fill="#0ea5a4"/>
+    <text x="706" y="746" font-size="42" font-weight="700" fill="#0b8483">수분</text>
+  </g>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

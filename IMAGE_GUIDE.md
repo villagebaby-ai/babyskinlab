@@ -46,7 +46,7 @@
 - 텍스트: ink `#0f172a`, 보조 `#64748b` / 위험 표시만 `#ef4444`
 
 ### 타이포·워터마크
-- `font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif"`
+- 소스 SVG는 `font-family="Pretendard, sans-serif"`로 작성. **빌드 시 `scripts/embed_font.py`가 사용된 글자만 Pretendard 서브셋을 @font-face(base64)로 임베드**하므로, img로 삽입돼도·sharp로 래스터돼도 어디서나 Pretendard로 렌더된다 (2026-07-18 도입). 소스에 직접 임베드하지 말 것 — 빌드가 처리한다.
 - 워터마크: 우하단 `babyskinlab.com` 20px `#cbd5e1` (워터마크만 폰트 하한 예외)
 
 ### 금지
@@ -62,12 +62,25 @@
 6. 표시 폭: figure max-width 640px 중앙 정렬 (본문 대비 60-75%)
 7. width/height 속성 명시 (CLS 방지)
 
+## 4-1. Hero(대표) 이미지 — 검색 섬네일용 (2026-07-18 도입)
+
+글마다 **1장**의 hero 이미지를 만든다. 구글·네이버·카카오 검색/공유 섬네일, `/guides/` 목록 카드, 본문 상단 리드 이미지로 쓰인다.
+
+- **규격 `1200 × 630` (OG 1.91:1)** — 이 비율이라야 구글·네이버·카카오 어디서도 잘리지 않는다. PNG로 출력 (SVG는 카카오·네이버 og:image 미지원).
+- 레이아웃(고정 템플릿, `scripts/build_heroes.py`): 좌측 **질문형 헤드라인**(2줄, 핵심어 teal) + 배지 pill + 우측 pale teal 패널 안 **라인 아이콘 1개**. 상단 `Baby Skin Lab` 워드마크, 하단 `babyskinlab.com`.
+- 헤드라인은 검색 발화형 질문으로: 예) "아기 얼굴 오돌토돌, / 원인이 뭘까?" · "전성분표, / 어떻게 읽을까?"
+- 아이콘은 축(증상=face, 보습=drop, 성분=list, 목욕=thermo, 자외선=sun 등)에 맞춰 `ICONS` 딕셔너리에서 선택하거나 신규 추가.
+- og:image 태그·twitter card·Article 스키마 image·목록 섬네일은 **slug 관례(`/og/{slug}.png`)로 자동 연결** — frontmatter 없어도 됨. 필요 시 `heroImage`/`heroAlt`로 재정의.
+
 ## 5. 제작 워크플로 (매일 발행 cron에 포함)
 
 1. 글 작성 후 원리도·실전도 주제 결정 (2절 공식)
-2. SVG 2장 코드 작성 → `public/diagrams/`
-3. 본문에 figure 2개 삽입 + frontmatter `images` 배열 기입
-4. **모바일 검증 스크립트 실행 (필수)** — `python scripts/check_diagram.py {slug}`
+2. **소스 SVG를 `img-src/`에 작성**:
+   - 다이어그램 2장 → `img-src/{slug}-1.svg`, `img-src/{slug}-2.svg`
+   - hero 1장 → `scripts/build_heroes.py`의 `HEROES` 리스트에 항목 추가 후 `python scripts/build_heroes.py`
+3. **`python scripts/build_images.py` 실행** — img-src 전체를 폰트 임베드해 `public/diagrams/`(SVG)·`public/og/`(hero PNG)로 출력
+4. 본문에 figure 2개 삽입 + frontmatter `images` 배열 기입 (hero는 자동 연결, 본문 삽입 불필요)
+5. **모바일 검증 스크립트 실행 (필수)** — `python scripts/check_diagram.py {slug}` (img-src 소스 대상)
    - 워터마크 제외 최소 폰트 36px 이상, 모바일 환산 10px 이상
    - 단어 수 15개 이내
    - 통과 못 하면 폰트를 키우거나 텍스트를 줄여서 재작성

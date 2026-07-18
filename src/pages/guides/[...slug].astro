@@ -12,6 +12,23 @@ const { Content } = await render(guide);
 const d = guide.data;
 const dateStr = d.publishedAt.toISOString().slice(0, 10);
 
+// hero(대표) 이미지 — 관례상 /og/{slug}.png, frontmatter로 재정의 가능
+const heroSrc = d.heroImage ?? `/og/${guide.id}.png`;
+const heroAlt = d.heroAlt ?? d.title;
+
+// schema.org image: hero(1200x630) + 본문 다이어그램(1200x800)
+const schemaImages = [
+  { '@type': 'ImageObject', url: `https://babyskinlab.com${heroSrc}`, width: 1200, height: 630, name: heroAlt },
+  ...(d.images?.map((im) => ({
+    '@type': 'ImageObject',
+    url: `https://babyskinlab.com${im.src}`,
+    width: 1200,
+    height: 800,
+    name: im.alt,
+    caption: im.caption,
+  })) ?? []),
+];
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -23,18 +40,7 @@ const articleSchema = {
   publisher: { '@type': 'Organization', name: '주식회사 빌리지베이비' },
   inLanguage: 'ko',
   ...(d.keywords?.length ? { keywords: d.keywords.join(', ') } : {}),
-  ...(d.images?.length
-    ? {
-        image: d.images.map((im) => ({
-          '@type': 'ImageObject',
-          url: `https://babyskinlab.com${im.src}`,
-          width: 1200,
-          height: 800,
-          name: im.alt,
-          caption: im.caption,
-        })),
-      }
-    : {}),
+  image: schemaImages,
 };
 
 const faqSchema = d.faq?.length
@@ -49,7 +55,7 @@ const faqSchema = d.faq?.length
     }
   : null;
 ---
-<Base title={d.title} description={d.description} ogType="article">
+<Base title={d.title} description={d.description} ogType="article" ogImage={heroSrc} ogImageAlt={heroAlt}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
     {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
@@ -57,6 +63,7 @@ const faqSchema = d.faq?.length
   <article class="article wrap">
     <h1>{d.title}</h1>
     <p class="meta">발행 {dateStr} · Baby Skin Lab</p>
+    <img class="lead-hero" src={heroSrc} alt={heroAlt} width="1200" height="630" loading="eager" />
     <Content />
     {d.faq?.length && (
       <section>

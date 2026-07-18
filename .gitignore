@@ -2,3 +2,6 @@ node_modules/
 dist/
 .astro/
 .DS_Store
+.claude/
+# Pretendard 원본(대용량) — scripts/embed_font.py 주석의 curl 명령으로 재다운로드
+scripts/fonts/

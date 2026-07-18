@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 얼굴 -->
+  <circle cx="600" cy="400" r="270" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="6"/>
+  <!-- 눈 -->
+  <circle cx="510" cy="350" r="14" fill="#0f172a"/>
+  <circle cx="690" cy="350" r="14" fill="#0f172a"/>
+  <!-- 입 -->
+  <path d="M550 500 Q600 540 650 500" fill="none" stroke="#0f172a" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- 이마 포인트 -->
+  <circle cx="600" cy="240" r="22" fill="#f59e0b"/>
+  <line x1="600" y1="218" x2="600" y2="130" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+  <text x="600" y="96" text-anchor="middle" font-size="52" font-weight="800" fill="#92400e">이마</text>
+
+  <!-- 뺨 포인트 (좌) -->
+  <circle cx="430" cy="430" r="22" fill="#0ea5a4"/>
+  <line x1="408" y1="430" x2="240" y2="430" stroke="#0ea5a4" stroke-width="5" stroke-linecap="round"/>
+  <text x="130" y="410" text-anchor="middle" font-size="52" font-weight="800" fill="#0b8483">뺨</text>
+  <text x="130" y="470" text-anchor="middle" font-size="42" font-weight="700" fill="#64748b">태열</text>
+
+  <!-- 이마 원인 -->
+  <text x="890" y="180" text-anchor="middle" font-size="42" font-weight="700" fill="#64748b">지루·좁쌀</text>
+  <line x1="622" y1="240" x2="790" y2="200" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- 입가 포인트 -->
+  <circle cx="680" cy="540" r="22" fill="#ef4444"/>
+  <line x1="702" y1="540" x2="890" y2="590" stroke="#ef4444" stroke-width="5" stroke-linecap="round"/>
+  <text x="990" y="580" text-anchor="middle" font-size="52" font-weight="800" fill="#ef4444">입가</text>
+  <text x="990" y="640" text-anchor="middle" font-size="42" font-weight="700" fill="#64748b">침독</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

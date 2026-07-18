@@ -5,12 +5,16 @@ interface Props {
   title: string;
   description: string;
   ogType?: 'website' | 'article';
+  ogImage?: string;
+  ogImageAlt?: string;
 }
 
-const { title, description, ogType = 'website' } = Astro.props;
+const { title, description, ogType = 'website', ogImage, ogImageAlt } = Astro.props;
 const siteName = 'Baby Skin Lab';
 const fullTitle = title === siteName ? title : `${title} — ${siteName}`;
 const url = new URL(Astro.url.pathname, Astro.site).toString();
+// OG 대표 이미지 (없으면 사이트 기본) — 절대 URL, 1200x630
+const ogImageUrl = new URL(ogImage ?? '/og/default.png', Astro.site).toString();
 ---
 <!doctype html>
 <html lang="ko">
@@ -26,6 +30,14 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
 <meta property="og:description" content={description} />
 <meta property="og:url" content={url} />
 <meta property="og:locale" content="ko_KR" />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+{ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" />
 <slot name="head" />

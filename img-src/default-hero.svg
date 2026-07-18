@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect x="760" y="70" width="380" height="490" rx="40" fill="#e6f7f7"/>
+  <g fill="none" stroke="#0b8483" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"><circle cx="955" cy="315" r="130"/><circle cx="915" cy="290" r="9" fill="#0b8483" stroke="none"/><circle cx="995" cy="290" r="9" fill="#0b8483" stroke="none"/><path d="M915 365 q40 30 80 0"/><circle cx="885" cy="345" r="6" fill="#0ea5a4" stroke="none"/><circle cx="1025" cy="340" r="6" fill="#0ea5a4" stroke="none"/><circle cx="1010" cy="380" r="6" fill="#0ea5a4" stroke="none"/></g>
+  <text x="90" y="130" font-size="34" font-weight="800" fill="#0ea5a4" letter-spacing="1">Baby Skin Lab</text>
+  <rect x="90" y="165" width="150" height="8" rx="4" fill="#0ea5a4"/>
+  <text x="90" y="300" font-size="66" font-weight="800" fill="#0f172a">우리 아기 피부,</text>
+  <text x="90" y="385" font-size="66" font-weight="800" fill="#0f172a"><tspan fill="#0b8483">지금 어떤 상태</tspan>일까?</text>
+  <text x="90" y="470" font-size="30" font-weight="600" fill="#64748b">증상 판정 · 케어 방향 · 성분 체크 도구 랩</text>
+  <text x="90" y="585" font-size="26" font-weight="600" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
