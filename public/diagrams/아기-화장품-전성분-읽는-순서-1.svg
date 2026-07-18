@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, 'Apple SD Gothic Neo', sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 전성분 목록 바 (위에서 아래로 함량 감소) -->
+  <!-- 앞쪽 = 큰 비중 -->
+  <rect x="180" y="120" width="840" height="150" rx="20" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="6"/>
+  <text x="220" y="215" font-size="58" font-weight="800" fill="#0b8483">앞 성분</text>
+  <text x="980" y="215" text-anchor="end" font-size="72" font-weight="800" fill="#0b8483">많음</text>
+
+  <rect x="260" y="320" width="680" height="130" rx="20" fill="#f0fbfb" stroke="#0ea5a4" stroke-width="5"/>
+  <text x="300" y="402" font-size="50" font-weight="700" fill="#0b8483">중간</text>
+
+  <rect x="340" y="500" width="520" height="120" rx="20" fill="#f8fafc" stroke="#cbd5e1" stroke-width="5"/>
+  <text x="380" y="576" font-size="46" font-weight="700" fill="#64748b">뒤 성분</text>
+  <text x="820" y="576" text-anchor="end" font-size="56" font-weight="800" fill="#94a3b8">적음</text>
+
+  <!-- 화살표 -->
+  <line x1="600" y1="650" x2="600" y2="720" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+  <polygon points="600,744 580,714 620,714" fill="#94a3b8"/>
+  <text x="600" y="785" text-anchor="middle" font-size="42" font-weight="700" fill="#64748b">함량 순서로 표기</text>
+
+  <text x="1180" y="60" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
