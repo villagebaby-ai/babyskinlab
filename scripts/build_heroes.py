@@ -72,26 +72,35 @@ ICONS = {
                  '<circle cx="985" cy="325" r="6" fill="'+TEAL+'" stroke="none"/>'),
 }
 
-def hero(slug, badge, l1, l2, em, icon):
-    """em: l1/l2 안에서 teal로 강조할 substring (없으면 '')"""
-    def line(txt, y):
-        if em and em in txt:
-            a, b = txt.split(em, 1)
-            return (f'<text x="90" y="{y}" font-size="72" font-weight="800" fill="{INK}">'
-                    f'{a}<tspan fill="{TEAL_D}">{em}</tspan>{b}</text>')
-        return f'<text x="90" y="{y}" font-size="72" font-weight="800" fill="{INK}">{txt}</text>'
+# ── center-safe 레이아웃 ──
+# 네이버는 1:1 정사각으로 "중앙"을 크롭한다 (viewBox 1200x630 → 중앙 안전지대 x 285~915).
+# 그래서 모든 핵심 요소(아이콘·헤드라인·배지)를 x=600 중심으로 세로 스택 → 구글(가로 전체)·
+# 카카오(2:1)·네이버(1:1 중앙크롭) 어디서도 안 잘린다. 좌우 여백은 크롭돼도 무방한 흰 배경.
+CX = 600
+SAFE_L, SAFE_R = 285, 915  # 네이버 정사각 크롭 경계 (넘으면 잘림)
 
+def _center_line(txt, y, size, em):
+    """x=600 중앙정렬, em 부분만 teal 강조"""
+    if em and em in txt:
+        a, b = txt.split(em, 1)
+        inner = f'{a}<tspan fill="{TEAL_D}">{em}</tspan>{b}'
+    else:
+        inner = txt
+    return (f'<text x="{CX}" y="{y}" text-anchor="middle" '
+            f'font-size="{size}" font-weight="800" fill="{INK}">{inner}</text>')
+
+def hero(slug, badge, l1, l2, em, icon):
+    icon_tf = f'<g transform="translate({CX},178) scale(0.6) translate(-955,-315)">{ICONS[icon]}</g>'
+    bw = 56 + len(badge) * 30
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Pretendard, sans-serif">
   <rect width="1200" height="630" fill="#ffffff"/>
-  <rect x="760" y="70" width="380" height="490" rx="40" fill="{PALE}"/>
-  {ICONS[icon]}
-  <text x="90" y="115" font-size="30" font-weight="800" fill="{TEAL}" letter-spacing="1">Baby Skin Lab</text>
-  <rect x="90" y="150" width="150" height="8" rx="4" fill="{TEAL}"/>
-  {line(l1, 285)}
-  {line(l2, 375)}
-  <rect x="90" y="430" rx="26" ry="26" width="{60 + len(badge)*26}" height="52" fill="none" stroke="{LINE}" stroke-width="3"/>
-  <text x="120" y="465" font-size="30" font-weight="700" fill="{SOFT}">{badge}</text>
-  <text x="90" y="585" font-size="26" font-weight="600" fill="{LINE}">babyskinlab.com</text>
+  <circle cx="{CX}" cy="178" r="88" fill="{PALE}"/>
+  {icon_tf}
+  {_center_line(l1, 358, 60, em)}
+  {_center_line(l2, 432, 60, em)}
+  <rect x="{CX - bw//2}" y="470" rx="26" ry="26" width="{bw}" height="52" fill="none" stroke="{LINE}" stroke-width="3"/>
+  <text x="{CX}" y="505" text-anchor="middle" font-size="30" font-weight="700" fill="{SOFT}">{badge}</text>
+  <text x="{CX}" y="590" text-anchor="middle" font-size="26" font-weight="800" fill="{TEAL}" letter-spacing="1">Baby Skin Lab</text>
 </svg>'''
     path = os.path.join(OUT, f"{slug}-hero.svg")
     with open(path, "w", encoding="utf-8") as f:
@@ -111,17 +120,17 @@ HEROES = [
 ]
 
 def default_hero():
-    """사이트 기본 OG (툴·홈 등 hero 없는 페이지용) → img-src/default-hero.svg → /og/default.png"""
+    """사이트 기본 OG (툴·홈 등 hero 없는 페이지용) → img-src/default-hero.svg → /og/default.png
+       center-safe 동일 규칙."""
+    icon_tf = f'<g transform="translate({CX},170) scale(0.56) translate(-955,-315)">{ICONS["face"]}</g>'
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Pretendard, sans-serif">
   <rect width="1200" height="630" fill="#ffffff"/>
-  <rect x="760" y="70" width="380" height="490" rx="40" fill="{PALE}"/>
-  {ICONS["face"]}
-  <text x="90" y="130" font-size="34" font-weight="800" fill="{TEAL}" letter-spacing="1">Baby Skin Lab</text>
-  <rect x="90" y="165" width="150" height="8" rx="4" fill="{TEAL}"/>
-  <text x="90" y="300" font-size="66" font-weight="800" fill="{INK}">우리 아기 피부,</text>
-  <text x="90" y="385" font-size="66" font-weight="800" fill="{INK}"><tspan fill="{TEAL_D}">지금 어떤 상태</tspan>일까?</text>
-  <text x="90" y="470" font-size="30" font-weight="600" fill="{SOFT}">증상 판정 · 케어 방향 · 성분 체크 도구 랩</text>
-  <text x="90" y="585" font-size="26" font-weight="600" fill="{LINE}">babyskinlab.com</text>
+  <circle cx="{CX}" cy="170" r="84" fill="{PALE}"/>
+  {icon_tf}
+  <text x="{CX}" y="345" text-anchor="middle" font-size="58" font-weight="800" fill="{INK}">우리 아기 피부,</text>
+  <text x="{CX}" y="415" text-anchor="middle" font-size="58" font-weight="800" fill="{INK}"><tspan fill="{TEAL_D}">지금 어떤 상태</tspan>일까?</text>
+  <text x="{CX}" y="480" text-anchor="middle" font-size="27" font-weight="600" fill="{SOFT}">증상 판정 · 케어 방향 · 성분 체크</text>
+  <text x="{CX}" y="590" text-anchor="middle" font-size="26" font-weight="800" fill="{TEAL}" letter-spacing="1">Baby Skin Lab</text>
 </svg>'''
     with open(os.path.join(OUT, "default-hero.svg"), "w", encoding="utf-8") as f:
         f.write(svg)

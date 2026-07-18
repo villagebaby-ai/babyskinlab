@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """img-src/*.svg → 배포 이미지 생성
    - {slug}-1.svg, {slug}-2.svg (다이어그램): Pretendard 임베드 → public/diagrams/
-   - {slug}-hero.svg           (대표 이미지): Pretendard 임베드 → PNG → public/og/{slug}.png (1200x630)
+   - {slug}-hero.svg           (대표 이미지): Pretendard 임베드 → PNG → public/og/{slug}.png (1600x840)
 
    usage: python scripts/build_images.py
 """
@@ -35,7 +35,8 @@ def main():
             tmp = os.path.join(tempfile.gettempdir(), f)
             print(run([sys.executable, EMBED, src, tmp]))
             out = os.path.join(OG, f"{slug}.png")
-            print(run(["node", RASTER, tmp, out, "1200", "630"]))
+            # 1600x840 (1.91:1) — 네이버 1:1 중앙크롭 시 840px 정사각 확보(권장 800↑)
+            print(run(["node", RASTER, tmp, out, "1600", "840"]))
         else:
             out = os.path.join(DIAG, f)
             print(run([sys.executable, EMBED, src, out]))

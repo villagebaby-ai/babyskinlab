@@ -50,8 +50,15 @@ export default defineConfig({
         if (lm) result.lastmod = `${lm}T00:00:00+09:00`;
 
         const m = decodeURIComponent(item.url).match(/\/guides\/([^\/]+)\/$/);
-        if (m && diagramMap.has(m[1])) {
-          result.img = diagramMap.get(m[1]).map((url) => ({ url }));
+        if (m) {
+          const imgs = [];
+          // hero(대표) 이미지 먼저 — /og/{slug}.png 존재 시
+          const heroPath = path.join(process.cwd(), 'public', 'og', `${m[1]}.png`);
+          if (fs.existsSync(heroPath)) {
+            imgs.push({ url: `https://babyskinlab.com/og/${encodeURIComponent(m[1])}.png` });
+          }
+          if (diagramMap.has(m[1])) imgs.push(...diagramMap.get(m[1]).map((url) => ({ url })));
+          if (imgs.length) result.img = imgs;
         }
         return result;
       },

@@ -18,7 +18,7 @@ const heroAlt = d.heroAlt ?? d.title;
 
 // schema.org image: hero(1200x630) + 본문 다이어그램(1200x800)
 const schemaImages = [
-  { '@type': 'ImageObject', url: `https://babyskinlab.com${heroSrc}`, width: 1200, height: 630, name: heroAlt },
+  { '@type': 'ImageObject', url: `https://babyskinlab.com${heroSrc}`, width: 1600, height: 840, name: heroAlt },
   ...(d.images?.map((im) => ({
     '@type': 'ImageObject',
     url: `https://babyskinlab.com${im.src}`,
@@ -63,7 +63,7 @@ const faqSchema = d.faq?.length
   <article class="article wrap">
     <h1>{d.title}</h1>
     <p class="meta">발행 {dateStr} · Baby Skin Lab</p>
-    <img class="lead-hero" src={heroSrc} alt={heroAlt} width="1200" height="630" loading="eager" />
+    <img class="lead-hero" src={heroSrc} alt={heroAlt} width="1600" height="840" loading="eager" />
     <Content />
     {d.faq?.length && (
       <section>
