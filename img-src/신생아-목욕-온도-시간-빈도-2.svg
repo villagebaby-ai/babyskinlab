@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 타임라인 축 -->
+  <line x1="150" y1="400" x2="1050" y2="400" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- 1 준비 -->
+  <circle cx="200" cy="400" r="56" fill="#0ea5a4"/>
+  <text x="200" y="424" text-anchor="middle" font-size="60" font-weight="800" fill="#ffffff">1</text>
+  <text x="200" y="270" text-anchor="middle" font-size="46" font-weight="800" fill="#0f172a">준비</text>
+  <text x="200" y="530" text-anchor="middle" font-size="40" font-weight="700" fill="#64748b">실내 24°C</text>
+
+  <!-- 2 온도 확인 -->
+  <circle cx="466" cy="400" r="56" fill="#0ea5a4"/>
+  <text x="466" y="424" text-anchor="middle" font-size="60" font-weight="800" fill="#ffffff">2</text>
+  <text x="466" y="270" text-anchor="middle" font-size="46" font-weight="800" fill="#0f172a">온도계</text>
+  <text x="466" y="530" text-anchor="middle" font-size="40" font-weight="700" fill="#64748b">38–40°C</text>
+
+  <!-- 3 목욕 -->
+  <circle cx="733" cy="400" r="56" fill="#0ea5a4"/>
+  <text x="733" y="424" text-anchor="middle" font-size="60" font-weight="800" fill="#ffffff">3</text>
+  <text x="733" y="270" text-anchor="middle" font-size="46" font-weight="800" fill="#0f172a">목욕</text>
+  <text x="733" y="530" text-anchor="middle" font-size="40" font-weight="700" fill="#64748b">5–10분</text>
+
+  <!-- 4 보습 -->
+  <circle cx="1000" cy="400" r="56" fill="#0b8483"/>
+  <text x="1000" y="424" text-anchor="middle" font-size="60" font-weight="800" fill="#ffffff">4</text>
+  <text x="1000" y="270" text-anchor="middle" font-size="46" font-weight="800" fill="#0b8483">보습</text>
+  <text x="1000" y="530" text-anchor="middle" font-size="40" font-weight="700" fill="#64748b">3분 안에</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

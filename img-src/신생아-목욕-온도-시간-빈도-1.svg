@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 3대 숫자 카드 -->
+  <!-- 온도 -->
+  <rect x="60" y="140" width="340" height="440" rx="24" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+  <text x="230" y="250" text-anchor="middle" font-size="46" font-weight="700" fill="#0b8483">물 온도</text>
+  <text x="230" y="400" text-anchor="middle" font-size="92" font-weight="800" fill="#0f172a">38–40</text>
+  <text x="230" y="490" text-anchor="middle" font-size="54" font-weight="700" fill="#64748b">°C</text>
+
+  <!-- 시간 -->
+  <rect x="430" y="140" width="340" height="440" rx="24" fill="#f0fbfb" stroke="#0ea5a4" stroke-width="5"/>
+  <text x="600" y="250" text-anchor="middle" font-size="46" font-weight="700" fill="#0b8483">시간</text>
+  <text x="600" y="400" text-anchor="middle" font-size="92" font-weight="800" fill="#0f172a">5–10</text>
+  <text x="600" y="490" text-anchor="middle" font-size="54" font-weight="700" fill="#64748b">분</text>
+
+  <!-- 빈도 -->
+  <rect x="800" y="140" width="340" height="440" rx="24" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+  <text x="970" y="250" text-anchor="middle" font-size="46" font-weight="700" fill="#0b8483">빈도</text>
+  <text x="970" y="400" text-anchor="middle" font-size="92" font-weight="800" fill="#0f172a">주 2–3</text>
+  <text x="970" y="490" text-anchor="middle" font-size="54" font-weight="700" fill="#64748b">회</text>
+
+  <text x="600" y="690" text-anchor="middle" font-size="42" font-weight="700" fill="#64748b">실내 24–27°C</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

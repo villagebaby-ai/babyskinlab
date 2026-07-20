@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <circle cx="600" cy="178" r="88" fill="#e6f7f7"/>
+  <g transform="translate(600,178) scale(0.6) translate(-955,-315)"><g fill="none" stroke="#0b8483" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"><path d="M930 200 a30 30 0 0 1 60 0 v150 a48 48 0 1 1 -60 0 Z"/><line x1="960" y1="250" x2="960" y2="380"/><circle cx="960" cy="405" r="26" fill="#0ea5a4" stroke="none"/></g></g>
+  <text x="600" y="358" text-anchor="middle" font-size="60" font-weight="800" fill="#0f172a">신생아 목욕,</text>
+  <text x="600" y="432" text-anchor="middle" font-size="60" font-weight="800" fill="#0f172a"><tspan fill="#0b8483">몇 도·몇 분·몇 번?</tspan></text>
+  <rect x="482" y="470" rx="26" ry="26" width="236" height="52" fill="none" stroke="#cbd5e1" stroke-width="3"/>
+  <text x="600" y="505" text-anchor="middle" font-size="30" font-weight="700" fill="#64748b">목욕 가이드</text>
+  <text x="600" y="590" text-anchor="middle" font-size="26" font-weight="800" fill="#0ea5a4" letter-spacing="1">Baby Skin Lab</text>
+</svg>
