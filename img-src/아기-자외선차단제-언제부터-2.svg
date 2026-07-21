@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 1순위: 그늘·시간대 -->
+  <rect x="100" y="150" width="1000" height="160" rx="24" fill="#0ea5a4"/>
+  <circle cx="215" cy="230" r="62" fill="#ffffff"/>
+  <text x="215" y="262" text-anchor="middle" font-size="84" font-weight="800" fill="#0ea5a4">1</text>
+  <text x="690" y="252" text-anchor="middle" font-size="58" font-weight="800" fill="#ffffff">그늘·시간대</text>
+
+  <!-- 2순위: 긴 옷·모자 -->
+  <rect x="100" y="340" width="1000" height="160" rx="24" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+  <circle cx="215" cy="420" r="62" fill="#0ea5a4"/>
+  <text x="215" y="452" text-anchor="middle" font-size="84" font-weight="800" fill="#ffffff">2</text>
+  <text x="690" y="442" text-anchor="middle" font-size="58" font-weight="800" fill="#0f172a">긴 옷·모자</text>
+
+  <!-- 3순위: 차단제 -->
+  <rect x="100" y="530" width="1000" height="160" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="5"/>
+  <circle cx="215" cy="610" r="62" fill="#cbd5e1"/>
+  <text x="215" y="642" text-anchor="middle" font-size="84" font-weight="800" fill="#ffffff">3</text>
+  <text x="690" y="632" text-anchor="middle" font-size="58" font-weight="800" fill="#64748b">차단제</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
