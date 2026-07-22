@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 1단계: 몸통 만지기 -->
+  <rect x="80" y="120" width="1040" height="150" rx="24" fill="#0ea5a4"/>
+  <circle cx="200" cy="195" r="58" fill="#ffffff"/>
+  <text x="200" y="222" text-anchor="middle" font-size="76" font-weight="800" fill="#0ea5a4">1</text>
+  <text x="670" y="215" text-anchor="middle" font-size="52" font-weight="800" fill="#ffffff">이마·등·배 만지기</text>
+
+  <!-- 화살표 -->
+  <text x="600" y="315" text-anchor="middle" font-size="48" font-weight="800" fill="#cbd5e1">↓</text>
+
+  <!-- 2단계: 체온계 -->
+  <rect x="80" y="340" width="1040" height="150" rx="24" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+  <circle cx="200" cy="415" r="58" fill="#0ea5a4"/>
+  <text x="200" y="442" text-anchor="middle" font-size="76" font-weight="800" fill="#ffffff">2</text>
+  <text x="670" y="435" text-anchor="middle" font-size="52" font-weight="800" fill="#0f172a">애매하면 체온계로</text>
+
+  <!-- 화살표 -->
+  <text x="600" y="535" text-anchor="middle" font-size="48" font-weight="800" fill="#cbd5e1">↓</text>
+
+  <!-- 3단계: 볼과 손 X -->
+  <rect x="80" y="560" width="1040" height="150" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="5"/>
+  <circle cx="200" cy="635" r="58" fill="#cbd5e1"/>
+  <text x="200" y="662" text-anchor="middle" font-size="76" font-weight="800" fill="#ffffff">✕</text>
+  <text x="670" y="655" text-anchor="middle" font-size="52" font-weight="800" fill="#64748b">볼·손은 부정확</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
