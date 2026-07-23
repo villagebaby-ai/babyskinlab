@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 카드 1: 건조·각질 -->
+  <rect x="90" y="120" width="1020" height="170" rx="24" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+  <circle cx="210" cy="205" r="54" fill="#0ea5a4"/>
+  <path d="M182 207 l20 22 l42 -48" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="320" y="192" font-size="56" font-weight="800" fill="#0f172a">건조·각질</text>
+  <text x="320" y="252" font-size="40" font-weight="600" fill="#64748b">당기고 거칠어요</text>
+
+  <!-- 카드 2: 아토피 가족력 -->
+  <rect x="90" y="315" width="1020" height="170" rx="24" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+  <circle cx="210" cy="400" r="54" fill="#0ea5a4"/>
+  <path d="M182 402 l20 22 l42 -48" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="320" y="387" font-size="56" font-weight="800" fill="#0f172a">아토피 가족력</text>
+  <text x="320" y="447" font-size="40" font-weight="600" fill="#64748b">장벽이 약해요</text>
+
+  <!-- 카드 3: 겨울·환절기 -->
+  <rect x="90" y="510" width="1020" height="170" rx="24" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+  <circle cx="210" cy="595" r="54" fill="#0ea5a4"/>
+  <path d="M182 597 l20 22 l42 -48" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="320" y="582" font-size="56" font-weight="800" fill="#0f172a">겨울·환절기</text>
+  <text x="320" y="642" font-size="40" font-weight="600" fill="#64748b">수분이 잘 빠져요</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
