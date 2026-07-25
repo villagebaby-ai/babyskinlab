@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 아래에서 위로 올라가는 3단 계단 -->
+  <path d="M70 758 L70 500 L420 500 L420 360 L770 360 L770 220 L1130 220 L1130 758 Z"
+        fill="#e6f7f7" stroke="#0ea5a4" stroke-width="6" stroke-linejoin="round"/>
+  <line x1="420" y1="500" x2="420" y2="758" stroke="#ffffff" stroke-width="6"/>
+  <line x1="770" y1="360" x2="770" y2="758" stroke="#ffffff" stroke-width="6"/>
+
+  <!-- 1단 라벨 확인 -->
+  <text x="245" y="474" text-anchor="middle" font-size="48" font-weight="800" fill="#0f172a">라벨 확인</text>
+  <circle cx="245" cy="568" r="46" fill="#0ea5a4"/>
+  <text x="245" y="588" text-anchor="middle" font-size="56" font-weight="800" fill="#ffffff">1</text>
+  <g fill="none" stroke="#0b8483" stroke-width="6" stroke-linecap="round">
+    <rect x="222" y="624" width="46" height="30" rx="10"/>
+    <rect x="193" y="652" width="104" height="102" rx="20" fill="#ffffff"/>
+    <line x1="215" y1="692" x2="275" y2="692" stroke="#0ea5a4" stroke-width="9"/>
+    <line x1="215" y1="720" x2="255" y2="720" stroke="#0ea5a4" stroke-width="9"/>
+  </g>
+
+  <!-- 2단 성분표 검색 -->
+  <text x="595" y="334" text-anchor="middle" font-size="48" font-weight="800" fill="#0f172a">성분표 검색</text>
+  <circle cx="595" cy="430" r="46" fill="#0ea5a4"/>
+  <text x="595" y="450" text-anchor="middle" font-size="56" font-weight="800" fill="#ffffff">2</text>
+  <rect x="525" y="500" width="140" height="170" rx="16" fill="#ffffff" stroke="#0b8483" stroke-width="6"/>
+  <rect x="539" y="555" width="112" height="32" rx="8" fill="#fef3c7"/>
+  <rect x="539" y="589" width="112" height="32" rx="8" fill="#fef3c7"/>
+  <g stroke-width="8" stroke-linecap="round">
+    <line x1="551" y1="532" x2="639" y2="532" stroke="#cbd5e1"/>
+    <line x1="551" y1="571" x2="639" y2="571" stroke="#ef4444"/>
+    <line x1="551" y1="605" x2="639" y2="605" stroke="#ef4444"/>
+    <line x1="551" y1="644" x2="639" y2="644" stroke="#cbd5e1"/>
+  </g>
+
+  <!-- 3단 팔에 소량 테스트 -->
+  <text x="950" y="194" text-anchor="middle" font-size="48" font-weight="800" fill="#0f172a">팔에 소량 테스트</text>
+  <circle cx="950" cy="290" r="46" fill="#0ea5a4"/>
+  <text x="950" y="310" text-anchor="middle" font-size="56" font-weight="800" fill="#ffffff">3</text>
+  <g transform="rotate(-10 950 440)">
+    <rect x="836" y="412" width="176" height="56" rx="28" fill="#ffffff" stroke="#0b8483" stroke-width="6"/>
+    <rect x="996" y="394" width="72" height="92" rx="28" fill="#ffffff" stroke="#0b8483" stroke-width="6"/>
+    <circle cx="888" cy="440" r="22" fill="#0ea5a4"/>
+    <circle cx="928" cy="440" r="9" fill="#0ea5a4" opacity="0.45"/>
+  </g>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

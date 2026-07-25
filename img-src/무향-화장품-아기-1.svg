@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 향료 한 노드에서 여러 성분으로 갈라지는 선 -->
+  <g fill="none" stroke="#0ea5a4" stroke-width="5" stroke-linecap="round" opacity="0.6">
+    <path d="M410 400 C 610 400 640 130 812 130"/>
+    <path d="M410 400 C 620 400 700 215 937 215"/>
+    <path d="M410 400 C 610 400 650 280 812 280"/>
+    <path d="M410 400 C 620 400 720 365 937 365"/>
+    <path d="M410 400 C 600 400 660 430 812 430"/>
+    <path d="M410 400 C 620 400 720 515 937 515"/>
+    <path d="M410 400 C 610 400 650 570 812 570"/>
+    <path d="M410 400 C 620 400 700 660 937 660"/>
+    <path d="M410 400 C 610 400 640 690 812 690"/>
+  </g>
+
+  <!-- 성분표에 적히는 이름: 향료 하나 -->
+  <circle cx="250" cy="400" r="160" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="7"/>
+  <text x="250" y="438" text-anchor="middle" font-size="104" font-weight="800" fill="#0b8483">향료</text>
+
+  <!-- 실제로 들어가는 이름 없는 성분들 -->
+  <g fill="#e6f7f7" stroke="#64748b" stroke-width="5">
+    <circle cx="850" cy="130" r="30"/>
+    <circle cx="975" cy="215" r="30"/>
+    <circle cx="975" cy="515" r="30"/>
+    <circle cx="850" cy="430" r="30"/>
+    <circle cx="975" cy="660" r="30"/>
+    <circle cx="850" cy="690" r="30"/>
+  </g>
+
+  <!-- 그중 알레르기 유발이 알려진 일부 -->
+  <g fill="#fef3c7" stroke="#ef4444" stroke-width="7">
+    <circle cx="850" cy="280" r="38"/>
+    <circle cx="975" cy="365" r="38"/>
+    <circle cx="850" cy="570" r="38"/>
+  </g>
+
+  <circle cx="958" cy="58" r="18" fill="#fef3c7" stroke="#ef4444" stroke-width="6"/>
+  <text x="1170" y="72" text-anchor="end" font-size="44" font-weight="700" fill="#ef4444">알레르겐</text>
+  <text x="912" y="780" text-anchor="middle" font-size="46" font-weight="700" fill="#64748b">숨은 성분</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
