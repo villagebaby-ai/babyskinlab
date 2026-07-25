@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 어른 실루엣 (기준) -->
+  <g fill="none" stroke="#0b8483" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="320" cy="152" r="56"/>
+    <rect x="244" y="234" width="152" height="226" rx="56"/>
+  </g>
+
+  <!-- 어른 레이어 밴드 1겹 -->
+  <rect x="180" y="520" width="280" height="58" rx="16" fill="#e6f7f7" stroke="#0b8483" stroke-width="6"/>
+  <text x="320" y="674" text-anchor="middle" font-size="54" font-weight="700" fill="#0f172a">어른 기준</text>
+
+  <!-- 화살표 -->
+  <g fill="none" stroke="#0ea5a4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="500" y1="549" x2="640" y2="549"/>
+    <path d="M612 523 l30 26 l-30 26"/>
+  </g>
+
+  <!-- 아기 실루엣 -->
+  <g fill="none" stroke="#0b8483" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="830" cy="216" r="40"/>
+    <rect x="786" y="276" width="88" height="132" rx="44"/>
+  </g>
+
+  <!-- 아기 레이어 밴드 2겹 (위쪽이 추가된 한 겹) -->
+  <rect x="690" y="440" width="280" height="58" rx="16" fill="#0ea5a4"/>
+  <rect x="690" y="520" width="280" height="58" rx="16" fill="#e6f7f7" stroke="#0b8483" stroke-width="6"/>
+  <text x="830" y="686" text-anchor="middle" font-size="72" font-weight="800" fill="#0b8483">+1겹까지</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
