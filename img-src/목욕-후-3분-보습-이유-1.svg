@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 좌: 그냥 두면 (증발) -->
+  <rect x="60" y="90" width="510" height="620" rx="28" fill="#fef3c7"/>
+  <text x="315" y="180" text-anchor="middle" font-size="48" font-weight="700" fill="#64748b">그냥 두면</text>
+
+  <g fill="none" stroke="#0b8483" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="200" y1="400" x2="200" y2="268"/>
+    <path d="M178 292 l22 -24 l22 24"/>
+    <line x1="315" y1="400" x2="315" y2="240"/>
+    <path d="M293 264 l22 -24 l22 24"/>
+    <line x1="430" y1="400" x2="430" y2="268"/>
+    <path d="M408 292 l22 -24 l22 24"/>
+  </g>
+  <circle cx="200" cy="342" r="12" fill="#0ea5a4"/>
+  <circle cx="315" cy="318" r="12" fill="#0ea5a4"/>
+  <circle cx="430" cy="342" r="12" fill="#0ea5a4"/>
+
+  <rect x="110" y="432" width="410" height="104" rx="24" fill="#ffffff" stroke="#0b8483" stroke-width="7"/>
+  <circle cx="243" cy="484" r="18" fill="#0ea5a4"/>
+  <circle cx="387" cy="484" r="18" fill="#0ea5a4"/>
+
+  <text x="315" y="650" text-anchor="middle" font-size="96" font-weight="800" fill="#0b8483">증발</text>
+
+  <!-- 우: 보습제로 덮으면 (가둠) -->
+  <rect x="630" y="90" width="510" height="620" rx="28" fill="#e6f7f7"/>
+  <text x="885" y="180" text-anchor="middle" font-size="48" font-weight="700" fill="#64748b">덮으면</text>
+
+  <rect x="680" y="360" width="410" height="64" rx="30" fill="#0ea5a4"/>
+  <rect x="680" y="432" width="410" height="104" rx="24" fill="#ffffff" stroke="#0b8483" stroke-width="7"/>
+  <circle cx="757" cy="484" r="18" fill="#0ea5a4"/>
+  <circle cx="838" cy="484" r="18" fill="#0ea5a4"/>
+  <circle cx="919" cy="484" r="18" fill="#0ea5a4"/>
+  <circle cx="1000" cy="484" r="18" fill="#0ea5a4"/>
+
+  <text x="885" y="650" text-anchor="middle" font-size="96" font-weight="800" fill="#0b8483">가둠</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
