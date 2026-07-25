@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 체온 곡선 (고열 유지 → 하강) -->
+  <path d="M150 470 L280 210 L600 210 L720 430 L1050 430 L1050 560 L150 560 Z" fill="#fef3c7"/>
+  <path d="M150 470 L280 210 L600 210 L720 430 L1050 430" fill="none" stroke="#0b8483" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="150" y="170" font-size="42" font-weight="700" fill="#64748b">체온</text>
+
+  <!-- 시간 축 -->
+  <line x1="150" y1="560" x2="1050" y2="560" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- 1 고열 -->
+  <circle cx="330" cy="560" r="52" fill="#0ea5a4"/>
+  <text x="330" y="581" text-anchor="middle" font-size="54" font-weight="800" fill="#ffffff">1</text>
+  <text x="330" y="672" text-anchor="middle" font-size="48" font-weight="800" fill="#0f172a">고열</text>
+  <text x="330" y="732" text-anchor="middle" font-size="42" font-weight="700" fill="#64748b">3–4일</text>
+
+  <!-- 2 열 내림 -->
+  <circle cx="660" cy="560" r="52" fill="#0ea5a4"/>
+  <text x="660" y="581" text-anchor="middle" font-size="54" font-weight="800" fill="#ffffff">2</text>
+  <text x="660" y="672" text-anchor="middle" font-size="48" font-weight="800" fill="#0f172a">열 내림</text>
+  <text x="660" y="732" text-anchor="middle" font-size="42" font-weight="700" fill="#64748b">하루 안</text>
+
+  <!-- 3 발진 -->
+  <circle cx="980" cy="560" r="52" fill="#0b8483"/>
+  <text x="980" y="581" text-anchor="middle" font-size="54" font-weight="800" fill="#ffffff">3</text>
+  <text x="980" y="672" text-anchor="middle" font-size="48" font-weight="800" fill="#0b8483">발진 시작</text>
+  <text x="980" y="732" text-anchor="middle" font-size="42" font-weight="700" fill="#64748b">몸통부터</text>
+
+  <!-- 발진 점 표시 -->
+  <g fill="#0ea5a4">
+    <circle cx="930" cy="330" r="14"/>
+    <circle cx="990" cy="300" r="14"/>
+    <circle cx="1040" cy="345" r="14"/>
+    <circle cx="960" cy="385" r="14"/>
+    <circle cx="1020" cy="400" r="14"/>
+  </g>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
