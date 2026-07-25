@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 지면 (모래) -->
+  <rect x="0" y="690" width="1200" height="58" fill="#fef3c7"/>
+  <line x1="0" y1="690" x2="1200" y2="690" stroke="#fcd34d" stroke-width="6"/>
+
+  <!-- 태양 -->
+  <circle cx="150" cy="140" r="54" fill="#0ea5a4"/>
+  <g stroke="#0ea5a4" stroke-width="10" stroke-linecap="round">
+    <line x1="150" y1="40" x2="150" y2="14"/>
+    <line x1="50" y1="140" x2="24" y2="140"/>
+    <line x1="221" y1="69" x2="240" y2="50"/>
+    <line x1="79" y1="211" x2="60" y2="230"/>
+    <line x1="221" y1="211" x2="240" y2="230"/>
+  </g>
+
+  <!-- 양산 (그늘) -->
+  <path d="M380 440 Q 640 250 900 440 Z" fill="#e6f7f7"/>
+  <path d="M380 440 Q 640 250 900 440" fill="none" stroke="#0b8483" stroke-width="18" stroke-linecap="round"/>
+  <line x1="640" y1="336" x2="640" y2="690" stroke="#0b8483" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- 직사 자외선 — 양산에서 차단 -->
+  <g stroke="#0ea5a4" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <line x1="300" y1="205" x2="464" y2="369"/>
+    <path d="M453 339 L464 369 L434 358"/>
+    <line x1="420" y1="169" x2="584" y2="333"/>
+    <path d="M573 303 L584 333 L554 322"/>
+    <line x1="555" y1="179" x2="719" y2="343"/>
+    <path d="M708 313 L719 343 L689 332"/>
+  </g>
+
+  <!-- 직사 자외선 — 그늘 밖 모래로 -->
+  <g stroke="#0ea5a4" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <line x1="994" y1="534" x2="1144" y2="684"/>
+    <path d="M1133 654 L1144 684 L1114 673"/>
+  </g>
+
+  <!-- 반사 자외선 — 그늘 안 아기에게 -->
+  <g stroke="#d97706" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <line x1="1130" y1="678" x2="850" y2="530"/>
+    <path d="M869 555 L850 530 L882 532"/>
+    <line x1="1080" y1="684" x2="860" y2="600"/>
+    <path d="M882 623 L860 600 L892 598"/>
+  </g>
+
+  <!-- 아기 (그늘 안) -->
+  <circle cx="778" cy="545" r="48" fill="#ffffff" stroke="#0f172a" stroke-width="9"/>
+  <path d="M724 690 v-60 a54 54 0 0 1 108 0 v60" fill="#ffffff" stroke="#0f172a" stroke-width="9" stroke-linejoin="round"/>
+
+  <!-- 라벨 -->
+  <text x="185" y="430" text-anchor="middle" font-size="64" font-weight="800" fill="#0b8483">직사</text>
+  <text x="1075" y="466" text-anchor="middle" font-size="64" font-weight="800" fill="#d97706">반사</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

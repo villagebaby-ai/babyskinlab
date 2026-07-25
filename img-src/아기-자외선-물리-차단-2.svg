@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- ── 좌: 챙 넓은 모자 ── -->
+  <!-- 귀 (가려짐) -->
+  <circle cx="200" cy="450" r="30" fill="#e6f7f7" stroke="#0b8483" stroke-width="8"/>
+  <circle cx="460" cy="450" r="30" fill="#e6f7f7" stroke="#0b8483" stroke-width="8"/>
+  <!-- 목·어깨 -->
+  <path d="M250 700 v-70 a80 80 0 0 1 160 0 v70" fill="#e6f7f7" stroke="#0b8483" stroke-width="9" stroke-linejoin="round"/>
+  <!-- 얼굴 -->
+  <circle cx="330" cy="450" r="128" fill="#e6f7f7" stroke="#0b8483" stroke-width="9"/>
+  <!-- 모자 -->
+  <path d="M235 322 a95 84 0 0 1 190 0 Z" fill="#0ea5a4"/>
+  <ellipse cx="330" cy="322" rx="218" ry="38" fill="#0ea5a4"/>
+  <!-- 챙 폭 표시 -->
+  <line x1="112" y1="252" x2="230" y2="252" stroke="#0b8483" stroke-width="8" stroke-linecap="round"/>
+  <line x1="112" y1="234" x2="112" y2="270" stroke="#0b8483" stroke-width="8" stroke-linecap="round"/>
+  <line x1="230" y1="234" x2="230" y2="270" stroke="#0b8483" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- ── 우: 야구모자 ── -->
+  <!-- 귀 (노출) -->
+  <circle cx="740" cy="450" r="30" fill="#fef3c7" stroke="#d97706" stroke-width="8"/>
+  <circle cx="1000" cy="450" r="30" fill="#fef3c7" stroke="#d97706" stroke-width="8"/>
+  <!-- 목·어깨 (노출) -->
+  <path d="M790 700 v-70 a80 80 0 0 1 160 0 v70" fill="#fef3c7" stroke="#d97706" stroke-width="9" stroke-linejoin="round"/>
+  <!-- 얼굴 상단 (가려짐) -->
+  <path d="M742 450 A 128 128 0 0 1 998 450 Z" fill="#e6f7f7"/>
+  <!-- 얼굴 하단 (노출) -->
+  <path d="M742 450 A 128 128 0 0 0 998 450 Z" fill="#fef3c7"/>
+  <circle cx="870" cy="450" r="128" fill="none" stroke="#0b8483" stroke-width="9"/>
+  <!-- 모자 -->
+  <path d="M775 322 a95 84 0 0 1 190 0 Z" fill="#0ea5a4"/>
+  <ellipse cx="870" cy="322" rx="118" ry="32" fill="#0ea5a4"/>
+
+  <!-- 라벨 -->
+  <text x="330" y="182" text-anchor="middle" font-size="66" font-weight="800" fill="#0b8483">챙 7cm</text>
+  <text x="870" y="182" text-anchor="middle" font-size="54" font-weight="700" fill="#64748b">야구모자</text>
+  <text x="870" y="778" text-anchor="middle" font-size="52" font-weight="800" fill="#d97706">귀·목뒤 노출</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
