@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 경계 숫자 -->
+  <text x="406" y="238" text-anchor="middle" font-size="86" font-weight="800" fill="#64748b">40%</text>
+  <text x="794" y="238" text-anchor="middle" font-size="86" font-weight="800" fill="#64748b">60%</text>
+  <line x1="406" y1="268" x2="406" y2="310" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+  <line x1="794" y1="268" x2="794" y2="310" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- 게이지 3구간 -->
+  <rect x="80" y="320" width="322" height="170" rx="20" fill="#fef3c7"/>
+  <rect x="410" y="308" width="380" height="194" rx="22" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="6"/>
+  <rect x="798" y="320" width="322" height="170" rx="20" fill="#e2e8f0"/>
+
+  <!-- 적정 구간 체크 -->
+  <path d="M556 408 l36 38 l72 -84" fill="none" stroke="#0b8483" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 건조 표시 (갈라짐) -->
+  <path d="M200 380 l-28 40 l34 22 l-30 44" fill="none" stroke="#d97706" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M262 388 l-22 32 l26 18 l-24 36" fill="none" stroke="#d97706" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 곰팡이 표시 (포자) -->
+  <circle cx="920" cy="392" r="20" fill="#94a3b8"/>
+  <circle cx="978" cy="420" r="28" fill="#94a3b8"/>
+  <circle cx="1030" cy="386" r="16" fill="#94a3b8"/>
+  <circle cx="948" cy="452" r="14" fill="#94a3b8"/>
+
+  <!-- 구간 라벨 -->
+  <text x="241" y="592" text-anchor="middle" font-size="54" font-weight="700" fill="#64748b">건조</text>
+  <text x="600" y="600" text-anchor="middle" font-size="66" font-weight="800" fill="#0b8483">적정</text>
+  <text x="959" y="592" text-anchor="middle" font-size="54" font-weight="700" fill="#64748b">곰팡이</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
