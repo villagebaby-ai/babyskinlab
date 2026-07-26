@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 맑은 날 기준선 (100%) -->
+  <line x1="70" y1="270" x2="1130" y2="270" stroke="#64748b" stroke-width="5" stroke-dasharray="16 16" stroke-linecap="round"/>
+
+  <!-- 막대 : 맑음 100% -->
+  <rect x="110" y="270" width="170" height="380" rx="18" fill="#e6f7f7" stroke="#0b8483" stroke-width="6"/>
+  <text x="195" y="238" text-anchor="middle" font-size="66" font-weight="800" fill="#0f172a">100%</text>
+  <text x="195" y="716" text-anchor="middle" font-size="42" font-weight="700" fill="#0f172a">맑음</text>
+
+  <!-- 막대 : 옅은 구름 90% -->
+  <rect x="380" y="308" width="170" height="342" rx="18" fill="#0ea5a4"/>
+  <text x="465" y="276" text-anchor="middle" font-size="66" font-weight="800" fill="#0f172a">90%</text>
+  <text x="465" y="716" text-anchor="middle" font-size="42" font-weight="700" fill="#0f172a">옅은 구름</text>
+
+  <!-- 막대 : 구름 사이 100% 초과 -->
+  <rect x="650" y="220" width="170" height="430" rx="18" fill="#0b8483"/>
+  <text x="735" y="188" text-anchor="middle" font-size="66" font-weight="800" fill="#0b8483">100%+</text>
+  <text x="735" y="716" text-anchor="middle" font-size="42" font-weight="700" fill="#0b8483">구름 사이</text>
+
+  <!-- 막대 : 두꺼운 흐림 30% -->
+  <rect x="920" y="536" width="170" height="114" rx="18" fill="#fef3c7" stroke="#64748b" stroke-width="6"/>
+  <text x="1005" y="504" text-anchor="middle" font-size="66" font-weight="800" fill="#64748b">30%</text>
+  <text x="1005" y="716" text-anchor="middle" font-size="42" font-weight="700" fill="#64748b">두꺼운 흐림</text>
+
+  <!-- 바닥선 -->
+  <line x1="70" y1="650" x2="1130" y2="650" stroke="#0f172a" stroke-width="6" stroke-linecap="round"/>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

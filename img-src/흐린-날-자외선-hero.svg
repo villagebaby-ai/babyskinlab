@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <circle cx="600" cy="178" r="88" fill="#e6f7f7"/>
+  <g transform="translate(600,178) scale(0.6) translate(-955,-315)"><g fill="#ffffff" stroke="#0b8483" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"><line x1="993" y1="212" x2="993" y2="186"/><line x1="938" y1="235" x2="920" y2="217"/><line x1="1048" y1="235" x2="1066" y2="217"/><line x1="1071" y1="290" x2="1088" y2="290"/><line x1="1048" y1="345" x2="1066" y2="363"/><circle cx="993" cy="290" r="62"/><path d="M985 347 h-12 A76 76 0 1 0 899.5 442 h85.5 a47.5 47.5 0 0 0 0 -95 Z"/></g></g>
+  <text x="600" y="358" text-anchor="middle" font-size="60" font-weight="800" fill="#0f172a">흐린 날에도</text>
+  <text x="600" y="432" text-anchor="middle" font-size="60" font-weight="800" fill="#0f172a"><tspan fill="#0b8483">선크림 발라야 할까?</tspan></text>
+  <rect x="467" y="470" rx="26" ry="26" width="266" height="52" fill="none" stroke="#cbd5e1" stroke-width="3"/>
+  <text x="600" y="505" text-anchor="middle" font-size="30" font-weight="700" fill="#64748b">자외선 가이드</text>
+  <text x="600" y="590" text-anchor="middle" font-size="26" font-weight="800" fill="#0ea5a4" letter-spacing="1">Baby Skin Lab</text>
+</svg>
