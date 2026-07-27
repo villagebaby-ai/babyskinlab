@@ -90,6 +90,12 @@ ICONS = {
                '<circle cx="978" cy="330" r="8" fill="'+TEAL+'" stroke="none"/>'
                '<circle cx="945" cy="360" r="8" fill="'+TEAL+'" stroke="none"/>'
                '<circle cx="988" cy="382" r="8" fill="'+TEAL+'" stroke="none"/>'),
+    # 두피 + 떨어지는 딱지 조각 (지루성 두피)
+    "scalp": ic('<circle cx="955" cy="338" r="108"/>'
+                '<path d="M847 330 q108 -90 216 0"/>'
+                '<rect x="876" y="200" width="26" height="26" rx="7" fill="'+TEAL+'" stroke="none"/>'
+                '<rect x="940" y="182" width="30" height="30" rx="8" fill="'+TEAL+'" stroke="none"/>'
+                '<rect x="1008" y="204" width="24" height="24" rx="7" fill="'+TEAL+'" stroke="none"/>'),
     # 기저귀
     "diaper": ic('<path d="M840 250 h230 l-25 90 a90 90 0 0 1 -180 0 Z"/>'
                  '<path d="M905 255 q50 40 100 0"/>'
@@ -154,6 +160,7 @@ HEROES = [
     ("무향-화장품-아기", "성분 가이드", "아기 화장품,", "무향이 나을까?", "무향이 나을까?", "list"),
     ("아기-옷-몇-겹", "환경 가이드", "아기 옷,", "몇 겹이 맞을까?", "몇 겹이 맞을까?", "thermo"),
     ("흐린-날-자외선", "자외선 가이드", "흐린 날에도", "선크림 발라야 할까?", "선크림 발라야 할까?", "cloudsun"),
+    ("아기-두피-노란-딱지", "증상 판정", "아기 두피 노란 딱지,", "왜 생길까?", "왜 생길까?", "scalp"),
 ]
 
 def default_hero():

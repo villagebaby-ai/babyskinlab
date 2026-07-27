@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 카드 1 : 오일 15분 -->
+  <rect x="40" y="220" width="232" height="360" rx="18" fill="#ffffff" stroke="#0ea5a4" stroke-width="4"/>
+  <circle cx="156" cy="350" r="92" fill="#fef3c7"/>
+  <text x="156" y="392" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">1</text>
+  <text x="156" y="530" text-anchor="middle" font-size="44" font-weight="700" fill="#0f172a">오일 15분</text>
+
+  <!-- 카드 2 : 빗질 -->
+  <rect x="336" y="220" width="232" height="360" rx="18" fill="#ffffff" stroke="#0ea5a4" stroke-width="4"/>
+  <circle cx="452" cy="350" r="92" fill="#e6f7f7"/>
+  <text x="452" y="392" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">2</text>
+  <text x="452" y="530" text-anchor="middle" font-size="44" font-weight="700" fill="#0f172a">빗질</text>
+
+  <!-- 카드 3 : 샴푸 -->
+  <rect x="632" y="220" width="232" height="360" rx="18" fill="#ffffff" stroke="#0ea5a4" stroke-width="4"/>
+  <circle cx="748" cy="350" r="92" fill="#e6f7f7"/>
+  <text x="748" y="392" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">3</text>
+  <text x="748" y="530" text-anchor="middle" font-size="44" font-weight="700" fill="#0f172a">샴푸</text>
+
+  <!-- 카드 4 : 보습 -->
+  <rect x="928" y="220" width="232" height="360" rx="18" fill="#ffffff" stroke="#0ea5a4" stroke-width="4"/>
+  <circle cx="1044" cy="350" r="92" fill="#e6f7f7"/>
+  <text x="1044" y="392" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">4</text>
+  <text x="1044" y="530" text-anchor="middle" font-size="44" font-weight="700" fill="#0f172a">보습</text>
+
+  <!-- 카드 사이 화살표 -->
+  <g fill="none" stroke="#0ea5a4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M285 400 H319"/>
+    <path d="M307 386 l16 14 l-16 14"/>
+    <path d="M581 400 H615"/>
+    <path d="M603 386 l16 14 l-16 14"/>
+    <path d="M877 400 H911"/>
+    <path d="M899 386 l16 14 l-16 14"/>
+  </g>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

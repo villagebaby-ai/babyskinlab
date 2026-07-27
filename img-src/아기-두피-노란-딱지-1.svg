@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 좌우 패널 구분선 -->
+  <line x1="590" y1="130" x2="590" y2="700" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- 패널 라벨 -->
+  <text x="300" y="112" text-anchor="middle" font-size="54" font-weight="700" fill="#0f172a">정상 두피</text>
+  <text x="840" y="112" text-anchor="middle" font-size="54" font-weight="700" fill="#0f172a">지루성 두피</text>
+
+  <!-- 좌 : 두피 표면 -->
+  <rect x="100" y="600" width="400" height="40" rx="14" fill="#0b8483"/>
+
+  <!-- 좌 : 낱개로 흩어져 떠오르는 각질 -->
+  <g fill="#e6f7f7" stroke="#0b8483" stroke-width="5">
+    <rect x="136" y="524" width="76" height="44" rx="6" transform="rotate(-7 174 546)"/>
+    <rect x="262" y="540" width="76" height="44" rx="6" transform="rotate(9 300 562)"/>
+    <rect x="372" y="520" width="76" height="44" rx="6" transform="rotate(-6 410 542)"/>
+    <rect x="180" y="418" width="76" height="44" rx="6" transform="rotate(11 218 440)"/>
+    <rect x="318" y="432" width="76" height="44" rx="6" transform="rotate(-9 356 454)"/>
+    <rect x="246" y="312" width="76" height="44" rx="6" transform="rotate(6 284 334)"/>
+  </g>
+
+  <text x="300" y="706" text-anchor="middle" font-size="44" font-weight="600" fill="#64748b">낱개로 탈락</text>
+
+  <!-- 우 : 두피 표면 + 피지 층 -->
+  <rect x="640" y="600" width="400" height="40" rx="14" fill="#0b8483"/>
+  <rect x="640" y="536" width="400" height="64" rx="16" fill="#fef3c7"/>
+  <text x="1058" y="584" font-size="44" fill="#64748b">피지</text>
+
+  <!-- 우 : 겹쳐 붙어 한 덩어리가 된 각질 -->
+  <g fill="#e6f7f7" stroke="#0b8483" stroke-width="5">
+    <rect x="645" y="508" width="76" height="44" rx="6" transform="rotate(-3 683 530)"/>
+    <rect x="697" y="508" width="76" height="44" rx="6" transform="rotate(4 735 530)"/>
+    <rect x="749" y="508" width="76" height="44" rx="6" transform="rotate(-2 787 530)"/>
+    <rect x="801" y="508" width="76" height="44" rx="6" transform="rotate(3 839 530)"/>
+    <rect x="853" y="508" width="76" height="44" rx="6" transform="rotate(-4 891 530)"/>
+    <rect x="905" y="508" width="76" height="44" rx="6" transform="rotate(2 943 530)"/>
+    <rect x="957" y="508" width="76" height="44" rx="6" transform="rotate(-3 995 530)"/>
+    <rect x="671" y="474" width="76" height="44" rx="6" transform="rotate(3 709 496)"/>
+    <rect x="723" y="474" width="76" height="44" rx="6" transform="rotate(-3 761 496)"/>
+    <rect x="775" y="474" width="76" height="44" rx="6" transform="rotate(2 813 496)"/>
+    <rect x="827" y="474" width="76" height="44" rx="6" transform="rotate(-4 865 496)"/>
+    <rect x="879" y="474" width="76" height="44" rx="6" transform="rotate(3 917 496)"/>
+    <rect x="931" y="474" width="76" height="44" rx="6" transform="rotate(-2 969 496)"/>
+    <rect x="723" y="440" width="76" height="44" rx="6" transform="rotate(-4 761 462)"/>
+    <rect x="775" y="440" width="76" height="44" rx="6" transform="rotate(3 813 462)"/>
+    <rect x="827" y="440" width="76" height="44" rx="6" transform="rotate(-3 865 462)"/>
+    <rect x="879" y="440" width="76" height="44" rx="6" transform="rotate(4 917 462)"/>
+  </g>
+
+  <text x="840" y="706" text-anchor="middle" font-size="44" font-weight="600" fill="#0b8483">뭉쳐서 딱지</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
