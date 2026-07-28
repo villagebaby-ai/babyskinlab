@@ -96,6 +96,15 @@ ICONS = {
                 '<rect x="876" y="200" width="26" height="26" rx="7" fill="'+TEAL+'" stroke="none"/>'
                 '<rect x="940" y="182" width="30" height="30" rx="8" fill="'+TEAL+'" stroke="none"/>'
                 '<rect x="1008" y="204" width="24" height="24" rx="7" fill="'+TEAL+'" stroke="none"/>'),
+    # 화장품 용기 + 시계 (유통기한·개봉 후 사용기간) — 시계는 흰 채움으로 용기 위에 겹침
+    "expiry": ('<g fill="none" stroke="' + TEAL_D + '" stroke-width="13" '
+               'stroke-linecap="round" stroke-linejoin="round">'
+               '<rect x="862" y="240" width="118" height="175" rx="26"/>'
+               '<path d="M896 240 v-26 a13 13 0 0 1 13 -13 h24 a13 13 0 0 1 13 13 v26"/>'
+               '<line x1="892" y1="292" x2="950" y2="292"/>'
+               '<circle cx="1000" cy="355" r="54" fill="#ffffff"/>'
+               '<path d="M1000 320 v35 h26"/>'
+               '</g>'),
     # 기저귀
     "diaper": ic('<path d="M840 250 h230 l-25 90 a90 90 0 0 1 -180 0 Z"/>'
                  '<path d="M905 255 q50 40 100 0"/>'
@@ -161,6 +170,7 @@ HEROES = [
     ("아기-옷-몇-겹", "환경 가이드", "아기 옷,", "몇 겹이 맞을까?", "몇 겹이 맞을까?", "thermo"),
     ("흐린-날-자외선", "자외선 가이드", "흐린 날에도", "선크림 발라야 할까?", "선크림 발라야 할까?", "cloudsun"),
     ("아기-두피-노란-딱지", "증상 판정", "아기 두피 노란 딱지,", "왜 생길까?", "왜 생길까?", "scalp"),
+    ("아기-보습제-유통기한-보관", "보습 가이드", "아기 보습제,", "언제까지 쓸까?", "언제까지 쓸까?", "expiry"),
 ]
 
 def default_hero():

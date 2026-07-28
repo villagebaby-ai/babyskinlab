@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 위 타임라인 : 제조부터 흐르는 사용기한 -->
+  <text x="170" y="196" text-anchor="middle" font-size="46" font-weight="600" fill="#64748b">제조</text>
+  <line x1="170" y1="216" x2="170" y2="262" stroke="#64748b" stroke-width="5" stroke-linecap="round"/>
+  <rect x="170" y="262" width="880" height="86" rx="18" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+  <text x="216" y="322" font-size="52" font-weight="700" fill="#0b8483">사용기한</text>
+
+  <!-- 개봉 지점 -->
+  <line x1="610" y1="348" x2="610" y2="452" stroke="#64748b" stroke-width="4" stroke-dasharray="12 12" stroke-linecap="round"/>
+  <text x="584" y="414" text-anchor="end" font-size="46" font-weight="600" fill="#64748b">개봉</text>
+
+  <!-- 아래 타임라인 : 개봉 시점부터 시작하는 짧은 기간 -->
+  <rect x="610" y="452" width="320" height="112" rx="20" fill="#fef3c7" stroke="#0ea5a4" stroke-width="5"/>
+  <text x="770" y="537" text-anchor="middle" font-size="78" font-weight="800" fill="#0b8483">12M</text>
+  <text x="770" y="622" text-anchor="middle" font-size="46" font-weight="600" fill="#64748b">개봉 후</text>
+
+  <!-- 먼저 끝나는 쪽 -->
+  <g stroke="#ef4444" fill="#ef4444">
+    <circle cx="930" cy="232" r="11" stroke="none"/>
+    <line x1="930" y1="232" x2="930" y2="664" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <text x="930" y="724" text-anchor="middle" font-size="52" font-weight="700" fill="#ef4444">먼저 오는 날</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
