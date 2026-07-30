@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 판단 순서 박스 -->
+  <rect x="160" y="70" width="520" height="120" rx="20" fill="#ffffff" stroke="#0ea5a4" stroke-width="5"/>
+  <text x="420" y="150" text-anchor="middle" font-size="54" font-weight="700" fill="#0f172a">전성분 확인</text>
+
+  <rect x="160" y="240" width="520" height="120" rx="20" fill="#ffffff" stroke="#0ea5a4" stroke-width="5"/>
+  <text x="420" y="320" text-anchor="middle" font-size="54" font-weight="700" fill="#0f172a">뒤쪽 표기</text>
+
+  <rect x="160" y="410" width="520" height="120" rx="20" fill="#ffffff" stroke="#0ea5a4" stroke-width="5"/>
+  <text x="420" y="490" text-anchor="middle" font-size="54" font-weight="700" fill="#0f172a">반응 없음</text>
+
+  <rect x="160" y="580" width="520" height="120" rx="20" fill="#e6f7f7" stroke="#0b8483" stroke-width="6"/>
+  <text x="420" y="661" text-anchor="middle" font-size="58" font-weight="800" fill="#0b8483">그대로 사용</text>
+
+  <!-- 연결 화살표 -->
+  <g fill="none" stroke="#0ea5a4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="420" y1="196" x2="420" y2="232"/>
+    <path d="M404 218 L420 236 L436 218"/>
+    <line x1="420" y1="366" x2="420" y2="402"/>
+    <path d="M404 388 L420 406 L436 388"/>
+    <line x1="420" y1="536" x2="420" y2="572"/>
+    <path d="M404 558 L420 576 L436 558"/>
+  </g>
+
+  <!-- 분기 : 반응이 반복되면 -->
+  <g fill="none" stroke="#ef4444" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="690" y1="470" x2="848" y2="470"/>
+    <path d="M836 456 L854 470 L836 484"/>
+  </g>
+  <text x="770" y="438" text-anchor="middle" font-size="40" font-weight="600" fill="#ef4444">반응 반복</text>
+  <rect x="870" y="410" width="290" height="120" rx="20" fill="#ffffff" stroke="#ef4444" stroke-width="5"/>
+  <text x="1015" y="489" text-anchor="middle" font-size="52" font-weight="700" fill="#ef4444">사용 중단</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
