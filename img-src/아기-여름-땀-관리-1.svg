@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 피부 단면 -->
+  <rect x="120" y="150" width="960" height="500" rx="20" fill="#e6f7f7"/>
+  <path d="M120 170 a20 20 0 0 1 20 -20 H1060 a20 20 0 0 1 20 20 V246 H120 Z" fill="#fef3c7"/>
+  <line x1="120" y1="246" x2="1080" y2="246" stroke="#cbd5e1" stroke-width="4"/>
+  <rect x="120" y="150" width="960" height="500" rx="20" fill="none" stroke="#cbd5e1" stroke-width="4"/>
+
+  <!-- 땀관 + 갇힌 땀 -->
+  <rect x="572" y="196" width="56" height="304" rx="24" fill="#ffffff" stroke="#0b8483" stroke-width="6"/>
+  <rect x="582" y="252" width="36" height="240" rx="18" fill="#0ea5a4"/>
+
+  <!-- 땀샘 -->
+  <path d="M600 500 c 56 0 56 42 0 42 c -56 0 -56 42 0 42 c 56 0 56 42 0 42" fill="none" stroke="#0b8483" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- 막힌 지점 -->
+  <rect x="552" y="204" width="96" height="38" rx="14" fill="#ef4444"/>
+  <g fill="none" stroke="#ef4444" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="600" y1="140" x2="600" y2="182"/>
+    <path d="M584 168 L600 188 L616 168"/>
+  </g>
+
+  <!-- 연결선 -->
+  <g stroke="#94a3b8" stroke-width="4" stroke-linecap="round">
+    <line x1="736" y1="372" x2="640" y2="372"/>
+    <line x1="736" y1="592" x2="668" y2="584"/>
+  </g>
+
+  <text x="600" y="108" text-anchor="middle" font-size="68" font-weight="800" fill="#ef4444">땀관 막힘</text>
+  <text x="220" y="214" text-anchor="middle" font-size="48" font-weight="700" fill="#64748b">각질층</text>
+  <text x="748" y="390" text-anchor="start" font-size="56" font-weight="800" fill="#0b8483">갇힌 땀</text>
+  <text x="748" y="608" text-anchor="start" font-size="48" font-weight="700" fill="#64748b">땀샘</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
