@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 정점 행 강조 배경 -->
+  <rect x="40" y="494" width="1120" height="156" rx="34" fill="#fef3c7"/>
+
+  <!-- 강도 트랙 -->
+  <g fill="#e6f7f7">
+    <rect x="420" y="170" width="580" height="84" rx="42"/>
+    <rect x="420" y="350" width="580" height="84" rx="42"/>
+    <rect x="420" y="530" width="580" height="84" rx="42"/>
+  </g>
+
+  <!-- 채움 바 -->
+  <g fill="#0ea5a4">
+    <rect x="420" y="170" width="87" height="84" rx="42"/>
+    <rect x="420" y="350" width="319" height="84" rx="42"/>
+  </g>
+  <rect x="420" y="530" width="580" height="84" rx="42" fill="#0b8483"/>
+
+  <text x="380" y="232" text-anchor="end" font-size="56" font-weight="700" fill="#0f172a">직후</text>
+  <text x="380" y="412" text-anchor="end" font-size="56" font-weight="700" fill="#0f172a">6시간</text>
+  <text x="380" y="592" text-anchor="end" font-size="56" font-weight="800" fill="#0b8483">12–24시간</text>
+  <text x="1030" y="590" text-anchor="start" font-size="48" font-weight="800" fill="#0b8483">정점</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

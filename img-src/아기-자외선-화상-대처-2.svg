@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 조건 카드 -->
+  <g fill="#ffffff" stroke="#0ea5a4" stroke-width="6">
+    <rect x="60" y="90" width="400" height="130" rx="20"/>
+    <rect x="60" y="245" width="400" height="130" rx="20"/>
+    <rect x="60" y="400" width="400" height="130" rx="20"/>
+  </g>
+
+  <!-- 연결선 -->
+  <g fill="none" stroke="#cbd5e1" stroke-width="5" stroke-linecap="round">
+    <line x1="460" y1="155" x2="580" y2="155"/>
+    <line x1="460" y1="310" x2="580" y2="310"/>
+    <line x1="460" y1="465" x2="580" y2="465"/>
+    <path d="M580 155 V680 H756"/>
+  </g>
+  <line x1="580" y1="310" x2="756" y2="310" stroke="#0b8483" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="580" cy="310" r="12" fill="#0b8483"/>
+  <polygon points="754,290 790,310 754,330" fill="#0b8483"/>
+  <polygon points="754,662 790,680 754,698" fill="#0ea5a4"/>
+
+  <!-- 결론 -->
+  <rect x="790" y="200" width="350" height="220" rx="26" fill="#0b8483"/>
+  <rect x="790" y="620" width="350" height="120" rx="26" fill="#ffffff" stroke="#0ea5a4" stroke-width="5"/>
+
+  <text x="260" y="173" text-anchor="middle" font-size="52" font-weight="700" fill="#0f172a">물집·진물</text>
+  <text x="260" y="328" text-anchor="middle" font-size="52" font-weight="700" fill="#0f172a">12개월 미만</text>
+  <text x="260" y="483" text-anchor="middle" font-size="52" font-weight="700" fill="#0f172a">열·처짐</text>
+
+  <text x="680" y="272" text-anchor="middle" font-size="40" font-weight="600" fill="#64748b">하나라도</text>
+  <text x="612" y="562" text-anchor="start" font-size="40" font-weight="600" fill="#64748b">모두 아니면</text>
+
+  <text x="965" y="338" text-anchor="middle" font-size="76" font-weight="800" fill="#ffffff">진료</text>
+  <text x="965" y="699" text-anchor="middle" font-size="54" font-weight="700" fill="#0f172a">집에서 관리</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
