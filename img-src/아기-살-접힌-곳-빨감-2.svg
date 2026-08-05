@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 리더선 (실루엣보다 아래에 깔아 선이 겹쳐 보이지 않게) -->
+  <g fill="none" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M622 236 L660 230 L790 230"/>
+    <path d="M600 532 L600 700 L790 700"/>
+    <path d="M498 301 L410 272"/>
+    <path d="M452 352 L410 352"/>
+    <path d="M530 590 L410 590"/>
+  </g>
+
+  <!-- 아기 몸 실루엣 -->
+  <g fill="none" stroke="#0b8483" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="600" cy="150" r="78"/>
+    <rect x="512" y="245" width="176" height="270" rx="70"/>
+    <path d="M512 300 L432 400"/>
+    <path d="M688 300 L768 400"/>
+    <path d="M552 515 L548 660"/>
+    <path d="M648 515 L652 660"/>
+  </g>
+
+  <!-- 접히는 부위 마커 -->
+  <g fill="#0ea5a4" stroke="#ffffff" stroke-width="6">
+    <circle cx="600" cy="237" r="20"/>
+    <circle cx="520" cy="305" r="20"/>
+    <circle cx="472" cy="352" r="20"/>
+    <circle cx="600" cy="512" r="20"/>
+    <circle cx="550" cy="590" r="20"/>
+  </g>
+
+  <text x="800" y="247" text-anchor="start" font-size="50" font-weight="700" fill="#0f172a">목 주름</text>
+  <text x="800" y="717" text-anchor="start" font-size="50" font-weight="700" fill="#0f172a">사타구니</text>
+  <text x="400" y="289" text-anchor="end" font-size="50" font-weight="700" fill="#0f172a">겨드랑이</text>
+  <text x="400" y="369" text-anchor="end" font-size="50" font-weight="700" fill="#0f172a">팔꿈치</text>
+  <text x="400" y="607" text-anchor="end" font-size="50" font-weight="700" fill="#0f172a">무릎 뒤</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

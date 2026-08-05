@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 세 조건 원 (마찰·습기·열) -->
+  <g fill="#e6f7f7" fill-opacity="0.75" stroke="#0ea5a4" stroke-width="6">
+    <circle cx="440" cy="310" r="210"/>
+    <circle cx="760" cy="310" r="210"/>
+    <circle cx="600" cy="580" r="210"/>
+  </g>
+
+  <!-- 세 조건이 겹치는 중앙 = 간찰진 -->
+  <circle cx="600" cy="400" r="92" fill="#0b8483"/>
+
+  <text x="330" y="265" text-anchor="middle" font-size="56" font-weight="700" fill="#0f172a">마찰</text>
+  <text x="870" y="265" text-anchor="middle" font-size="56" font-weight="700" fill="#0f172a">습기</text>
+  <text x="600" y="700" text-anchor="middle" font-size="56" font-weight="700" fill="#0f172a">열</text>
+  <text x="600" y="418" text-anchor="middle" font-size="56" font-weight="800" fill="#ffffff">간찰진</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
