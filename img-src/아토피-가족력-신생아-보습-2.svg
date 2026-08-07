@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 체크리스트 카드 4장 -->
+  <g fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5">
+    <rect x="90" y="110" width="480" height="260" rx="20"/>
+    <rect x="630" y="110" width="480" height="260" rx="20"/>
+    <rect x="90" y="430" width="480" height="260" rx="20"/>
+    <rect x="630" y="430" width="480" height="260" rx="20"/>
+  </g>
+
+  <!-- 체크 아이콘 -->
+  <g fill="#0b8483">
+    <circle cx="330" cy="200" r="40"/>
+    <circle cx="870" cy="200" r="40"/>
+    <circle cx="330" cy="520" r="40"/>
+    <circle cx="870" cy="520" r="40"/>
+  </g>
+  <g fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M308 200 l16 18 l30 -36"/>
+    <path d="M848 200 l16 18 l30 -36"/>
+    <path d="M308 520 l16 18 l30 -36"/>
+    <path d="M848 520 l16 18 l30 -36"/>
+  </g>
+
+  <!-- 라벨 -->
+  <text x="330" y="305" text-anchor="middle" font-size="52" font-weight="700" fill="#0f172a">하루 2회</text>
+  <text x="870" y="305" text-anchor="middle" font-size="52" font-weight="700" fill="#0f172a">목욕 후 3분</text>
+  <text x="330" y="625" text-anchor="middle" font-size="52" font-weight="700" fill="#0f172a">얼굴·몸 전체</text>
+  <text x="870" y="625" text-anchor="middle" font-size="52" font-weight="700" fill="#0f172a">주 1회 사진</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 기준선 -->
+  <line x1="130" y1="620" x2="1070" y2="620" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- 위험 3단 비교 막대 -->
+  <rect x="180" y="525" width="240" height="95" rx="16" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="6"/>
+  <rect x="480" y="430" width="240" height="190" rx="16" fill="#fef3c7" stroke="#0ea5a4" stroke-width="6"/>
+  <rect x="780" y="240" width="240" height="380" rx="16" fill="#0b8483" stroke="#0b8483" stroke-width="6"/>
+
+  <!-- 핵심 숫자 -->
+  <text x="300" y="495" text-anchor="middle" font-size="100" font-weight="800" fill="#0f172a">15%</text>
+  <text x="600" y="400" text-anchor="middle" font-size="100" font-weight="800" fill="#0f172a">30%</text>
+  <text x="900" y="205" text-anchor="middle" font-size="92" font-weight="800" fill="#0b8483">50–70%</text>
+
+  <!-- 라벨 -->
+  <text x="300" y="700" text-anchor="middle" font-size="54" font-weight="700" fill="#0f172a">부모 없음</text>
+  <text x="600" y="700" text-anchor="middle" font-size="54" font-weight="700" fill="#0f172a">한쪽</text>
+  <text x="900" y="700" text-anchor="middle" font-size="54" font-weight="700" fill="#0f172a">양쪽</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
