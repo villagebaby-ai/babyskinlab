@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <rect x="40" y="280" width="320" height="240" rx="20" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+  <rect x="420" y="280" width="320" height="240" rx="20" fill="#fef3c7" stroke="#0ea5a4" stroke-width="5"/>
+  <rect x="800" y="280" width="320" height="240" rx="20" fill="#0b8483" stroke="#0b8483" stroke-width="5"/>
+
+  <path d="M375,370 L405,400 L375,430" fill="none" stroke="#0ea5a4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M755,370 L785,400 L755,430" fill="none" stroke="#0ea5a4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <circle cx="200" cy="280" r="48" fill="#ffffff" stroke="#0ea5a4" stroke-width="6"/>
+  <circle cx="580" cy="280" r="48" fill="#ffffff" stroke="#0ea5a4" stroke-width="6"/>
+  <circle cx="960" cy="280" r="48" fill="#ffffff" stroke="#ffffff" stroke-width="6"/>
+
+  <text x="200" y="297" text-anchor="middle" font-size="56" font-weight="800" fill="#0ea5a4">1</text>
+  <text x="580" y="297" text-anchor="middle" font-size="56" font-weight="800" fill="#0ea5a4">2</text>
+  <text x="960" y="297" text-anchor="middle" font-size="56" font-weight="800" fill="#0b8483">3</text>
+
+  <text x="200" y="400" text-anchor="middle" font-size="46" font-weight="700" fill="#0f172a">라벨 대신</text>
+  <text x="200" y="462" text-anchor="middle" font-size="46" font-weight="700" fill="#0f172a">전성분 확인</text>
+
+  <text x="580" y="400" text-anchor="middle" font-size="42" font-weight="700" fill="#0f172a">알레르기 성분</text>
+  <text x="580" y="462" text-anchor="middle" font-size="46" font-weight="700" fill="#0f172a">이름 대조</text>
+
+  <text x="960" y="400" text-anchor="middle" font-size="46" font-weight="700" fill="#ffffff">반응 있으면</text>
+  <text x="960" y="462" text-anchor="middle" font-size="46" font-weight="700" fill="#ffffff">바로 중단</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
