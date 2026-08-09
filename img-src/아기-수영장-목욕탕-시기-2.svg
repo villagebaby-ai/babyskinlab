@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 2x2 체크리스트 카드 -->
+  <!-- 카드 1: 수영 기저귀 -->
+  <rect x="70" y="80" width="500" height="290" rx="24" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+  <circle cx="150" cy="160" r="34" fill="#0b8483"/>
+  <path d="M134 160 l11 13 l23 -27" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="205" y="172" font-size="48" font-weight="700" fill="#0f172a">수영 기저귀</text>
+  <text x="150" y="310" text-anchor="middle" font-size="38" font-weight="600" fill="#64748b">1시간마다 확인</text>
+
+  <!-- 카드 2: 자외선 차단 -->
+  <rect x="630" y="80" width="500" height="290" rx="24" fill="#fef3c7" stroke="#0ea5a4" stroke-width="5"/>
+  <circle cx="710" cy="160" r="34" fill="#0b8483"/>
+  <path d="M694 160 l11 13 l23 -27" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="765" y="172" font-size="48" font-weight="700" fill="#0f172a">자외선 차단</text>
+  <text x="710" y="310" text-anchor="middle" font-size="38" font-weight="600" fill="#64748b">그늘막·래시가드</text>
+
+  <!-- 카드 3: 온도 확인 -->
+  <rect x="70" y="430" width="500" height="290" rx="24" fill="#fef3c7" stroke="#0ea5a4" stroke-width="5"/>
+  <circle cx="150" cy="510" r="34" fill="#0b8483"/>
+  <path d="M134 510 l11 13 l23 -27" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="205" y="522" font-size="48" font-weight="700" fill="#0f172a">온도 확인</text>
+  <text x="150" y="660" text-anchor="middle" font-size="38" font-weight="600" fill="#64748b">수온계·온습도계</text>
+
+  <!-- 카드 4: 헹굼·보습 -->
+  <rect x="630" y="430" width="500" height="290" rx="24" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="5"/>
+  <circle cx="710" cy="510" r="34" fill="#0b8483"/>
+  <path d="M694 510 l11 13 l23 -27" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="765" y="522" font-size="48" font-weight="700" fill="#0f172a">헹굼·보습 세트</text>
+  <text x="710" y="660" text-anchor="middle" font-size="38" font-weight="600" fill="#64748b">수건·보습제</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
