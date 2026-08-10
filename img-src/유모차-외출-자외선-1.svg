@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 게이지 바: 하루 자외선 세기 -->
+  <rect x="100" y="380" width="1000" height="100" rx="50" fill="#e6f7f7"/>
+  <rect x="386" y="380" width="428" height="100" fill="#fef3c7"/>
+  <text x="600" y="443" text-anchor="middle" font-size="52" font-weight="800" fill="#ef4444">주의</text>
+
+  <!-- 태양 아이콘 (피크 구간 위) -->
+  <g fill="none" stroke="#0b8483" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" transform="translate(600,265)">
+    <circle cx="0" cy="0" r="42"/>
+    <line x1="0" y1="-66" x2="0" y2="-84"/>
+    <line x1="0" y1="66" x2="0" y2="84"/>
+    <line x1="-66" y1="0" x2="-84" y2="0"/>
+    <line x1="66" y1="0" x2="84" y2="0"/>
+    <line x1="-47" y1="-47" x2="-60" y2="-60"/>
+    <line x1="47" y1="47" x2="60" y2="60"/>
+    <line x1="47" y1="-47" x2="60" y2="-60"/>
+    <line x1="-47" y1="47" x2="-60" y2="60"/>
+  </g>
+
+  <!-- 시간 눈금 -->
+  <line x1="100" y1="480" x2="100" y2="520" stroke="#cbd5e1" stroke-width="5"/>
+  <line x1="386" y1="480" x2="386" y2="520" stroke="#cbd5e1" stroke-width="5"/>
+  <line x1="814" y1="480" x2="814" y2="520" stroke="#cbd5e1" stroke-width="5"/>
+  <line x1="1100" y1="480" x2="1100" y2="520" stroke="#cbd5e1" stroke-width="5"/>
+  <text x="100" y="570" text-anchor="middle" font-size="42" font-weight="600" fill="#64748b">6시</text>
+  <text x="386" y="570" text-anchor="middle" font-size="42" font-weight="600" fill="#64748b">10시</text>
+  <text x="814" y="570" text-anchor="middle" font-size="42" font-weight="600" fill="#64748b">16시</text>
+  <text x="1100" y="570" text-anchor="middle" font-size="42" font-weight="600" fill="#64748b">20시</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
