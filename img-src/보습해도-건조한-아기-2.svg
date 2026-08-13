@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 1. 타이밍 -->
+  <rect x="90" y="100" width="500" height="290" rx="28" fill="#e6f7f7"/>
+  <text x="180" y="275" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">1</text>
+  <text x="270" y="230" font-size="54" font-weight="800" fill="#0f172a">타이밍</text>
+  <text x="270" y="300" font-size="40" font-weight="600" fill="#64748b">물기 있을 때</text>
+
+  <!-- 2. 양 -->
+  <rect x="610" y="100" width="500" height="290" rx="28" fill="#e6f7f7"/>
+  <text x="700" y="275" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">2</text>
+  <text x="790" y="230" font-size="54" font-weight="800" fill="#0f172a">양</text>
+  <text x="790" y="300" font-size="40" font-weight="600" fill="#64748b">손가락 한 마디</text>
+
+  <!-- 3. 제형 -->
+  <rect x="90" y="420" width="500" height="290" rx="28" fill="#fef3c7"/>
+  <text x="180" y="595" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">3</text>
+  <text x="270" y="550" font-size="54" font-weight="800" fill="#0f172a">제형</text>
+  <text x="270" y="620" font-size="40" font-weight="600" fill="#64748b">크림·연고</text>
+
+  <!-- 4. 환경 -->
+  <rect x="610" y="420" width="500" height="290" rx="28" fill="#fef3c7"/>
+  <text x="700" y="595" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">4</text>
+  <text x="790" y="550" font-size="54" font-weight="800" fill="#0f172a">환경</text>
+  <text x="790" y="620" font-size="40" font-weight="600" fill="#64748b">습도 40–60%</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
