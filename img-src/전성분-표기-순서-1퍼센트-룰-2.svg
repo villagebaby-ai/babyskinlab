@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 구역 1 -->
+  <rect x="90" y="90" width="1020" height="190" rx="28" fill="#e6f7f7"/>
+  <text x="175" y="215" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">1</text>
+  <text x="270" y="170" font-size="54" font-weight="800" fill="#0f172a">앞 5개</text>
+  <text x="270" y="235" font-size="42" font-weight="600" fill="#64748b">제형 성격</text>
+  <rect x="790" y="140" width="260" height="20" rx="10" fill="#0ea5a4"/>
+  <rect x="790" y="180" width="200" height="20" rx="10" fill="#0ea5a4"/>
+  <rect x="790" y="220" width="150" height="20" rx="10" fill="#0ea5a4"/>
+
+  <!-- 구역 2 -->
+  <rect x="90" y="305" width="1020" height="190" rx="28" fill="#e6f7f7"/>
+  <text x="175" y="430" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">2</text>
+  <text x="270" y="385" font-size="54" font-weight="800" fill="#0f172a">중간</text>
+  <text x="270" y="450" font-size="42" font-weight="600" fill="#64748b">함량 순 유효</text>
+  <rect x="790" y="355" width="220" height="20" rx="10" fill="#0ea5a4"/>
+  <rect x="790" y="395" width="170" height="20" rx="10" fill="#0ea5a4"/>
+  <rect x="790" y="435" width="120" height="20" rx="10" fill="#0ea5a4"/>
+
+  <!-- 구역 3 -->
+  <rect x="90" y="520" width="1020" height="190" rx="28" fill="#fef3c7"/>
+  <text x="175" y="645" text-anchor="middle" font-size="110" font-weight="800" fill="#0b8483">3</text>
+  <text x="270" y="600" font-size="54" font-weight="800" fill="#0f172a">1% 이하</text>
+  <text x="270" y="665" font-size="42" font-weight="600" fill="#64748b">순서 무의미</text>
+  <rect x="790" y="570" width="180" height="20" rx="10" fill="#cbd5e1"/>
+  <rect x="790" y="610" width="180" height="20" rx="10" fill="#cbd5e1"/>
+  <rect x="790" y="650" width="180" height="20" rx="10" fill="#cbd5e1"/>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>

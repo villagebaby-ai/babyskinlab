@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 상단: 함량 내림차순 막대 -->
+  <text x="90" y="100" font-size="54" font-weight="800" fill="#0f172a">함량 순</text>
+
+  <rect x="90" y="130" width="800" height="72" rx="18" fill="#0ea5a4"/>
+  <rect x="90" y="222" width="580" height="72" rx="18" fill="#0ea5a4"/>
+  <rect x="90" y="314" width="360" height="72" rx="18" fill="#0ea5a4"/>
+
+  <!-- 1% 경계선 -->
+  <line x1="90" y1="432" x2="1110" y2="432" stroke="#0b8483" stroke-width="6" stroke-linecap="round" stroke-dasharray="26 22"/>
+  <text x="1110" y="410" text-anchor="end" font-size="88" font-weight="800" fill="#0b8483">1%</text>
+
+  <!-- 하단: 순서 자유 (동일 크기 블록) -->
+  <text x="90" y="530" font-size="54" font-weight="800" fill="#0f172a">순서 자유</text>
+
+  <rect x="90" y="560" width="300" height="140" rx="22" fill="#fef3c7"/>
+  <rect x="450" y="560" width="300" height="140" rx="22" fill="#fef3c7"/>
+  <rect x="810" y="560" width="300" height="140" rx="22" fill="#fef3c7"/>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
