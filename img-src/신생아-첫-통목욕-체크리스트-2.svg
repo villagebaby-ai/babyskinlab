@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- 체크 카드 3장 -->
+  <rect x="80" y="90" width="320" height="380" rx="28" fill="#e6f7f7"/>
+  <g fill="none" stroke="#0b8483" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M180 250 l40 42 l82 -96"/>
+  </g>
+  <text x="240" y="392" text-anchor="middle" font-size="54" font-weight="800" fill="#0f172a">마름</text>
+
+  <rect x="440" y="90" width="320" height="380" rx="28" fill="#e6f7f7"/>
+  <g fill="none" stroke="#0b8483" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M540 250 l40 42 l82 -96"/>
+  </g>
+  <text x="600" y="392" text-anchor="middle" font-size="54" font-weight="800" fill="#0f172a">진물 없음</text>
+
+  <rect x="800" y="90" width="320" height="380" rx="28" fill="#e6f7f7"/>
+  <g fill="none" stroke="#0b8483" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M900 250 l40 42 l82 -96"/>
+  </g>
+  <text x="960" y="392" text-anchor="middle" font-size="54" font-weight="800" fill="#0f172a">붉기 없음</text>
+
+  <!-- 통과 화살표 -->
+  <g fill="none" stroke="#0ea5a4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="600" y1="510" x2="600" y2="570"/>
+    <path d="M572 546 l28 28 l28 -28"/>
+  </g>
+
+  <!-- 결과 띠 -->
+  <rect x="80" y="600" width="640" height="120" rx="26" fill="#0ea5a4"/>
+  <text x="400" y="678" text-anchor="middle" font-size="60" font-weight="800" fill="#ffffff">통목욕 시작</text>
+
+  <!-- 예외 띠 -->
+  <rect x="760" y="600" width="360" height="120" rx="26" fill="#ffffff" stroke="#ef4444" stroke-width="6"/>
+  <text x="940" y="660" text-anchor="middle" font-size="42" font-weight="700" fill="#64748b">냄새·발열</text>
+  <text x="940" y="706" text-anchor="middle" font-size="48" font-weight="800" fill="#ef4444">진료</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
