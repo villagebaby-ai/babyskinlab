@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Pretendard, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <circle cx="170" cy="220" r="78" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="6"/>
+  <text x="170" y="255" text-anchor="middle" font-size="88" font-weight="800" fill="#0b8483">1</text>
+  <text x="170" y="395" text-anchor="middle" font-size="50" font-weight="700" fill="#0f172a">부모 타입</text>
+
+  <path d="M268 220 h130 m-34 -22 l34 22 l-34 22" fill="none" stroke="#0ea5a4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <circle cx="510" cy="220" r="78" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="6"/>
+  <text x="510" y="255" text-anchor="middle" font-size="88" font-weight="800" fill="#0b8483">2</text>
+  <text x="510" y="395" text-anchor="middle" font-size="50" font-weight="700" fill="#0f172a">저녁에 확인</text>
+
+  <path d="M608 220 h60 q22 0 22 -22 v-48 q0 -22 22 -22 h48 m-34 -22 l34 22 l-34 22" fill="none" stroke="#0ea5a4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M608 220 h60 q22 0 22 22 v48 q0 22 22 22 h48 m-34 -22 l34 22 l-34 22" fill="none" stroke="#0ea5a4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="790" y="70" width="310" height="120" rx="24" fill="#fef3c7"/>
+  <text x="945" y="150" text-anchor="middle" font-size="62" font-weight="800" fill="#0f172a">민감</text>
+
+  <rect x="790" y="250" width="310" height="120" rx="24" fill="#e6f7f7"/>
+  <text x="945" y="330" text-anchor="middle" font-size="62" font-weight="800" fill="#0f172a">보통</text>
+
+  <rect x="100" y="530" width="1000" height="160" rx="30" fill="#e6f7f7" stroke="#0ea5a4" stroke-width="6"/>
+  <text x="600" y="635" text-anchor="middle" font-size="72" font-weight="800" fill="#0b8483">그늘·옷 먼저</text>
+
+  <text x="1180" y="784" text-anchor="end" font-size="20" fill="#cbd5e1">babyskinlab.com</text>
+</svg>
